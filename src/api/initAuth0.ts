@@ -23,6 +23,14 @@ const deriveIssuerBaseURL = () => {
   return `https://${domainOrUrl}`;
 };
 
+const derivedIssuerBaseURL = deriveIssuerBaseURL();
+
+if (!derivedIssuerBaseURL) {
+  throw new Error(
+    "Auth0 misconfigured: issuerBaseURL is required. Set AUTH0_DOMAIN (recommended) or AUTH0_ISSUER_BASE_URL in the runtime environment.",
+  );
+}
+
 const normalizeIssuerBaseURLForDocker = (issuerBaseURL: string | undefined) => {
   if (!issuerBaseURL) return issuerBaseURL;
 
@@ -50,5 +58,5 @@ const normalizeIssuerBaseURLForDocker = (issuerBaseURL: string | undefined) => {
  */
 export const auth0 = initAuth0({
   baseURL,
-  issuerBaseURL: normalizeIssuerBaseURLForDocker(deriveIssuerBaseURL()),
+  issuerBaseURL: normalizeIssuerBaseURLForDocker(derivedIssuerBaseURL),
 });

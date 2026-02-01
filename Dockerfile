@@ -48,7 +48,9 @@ COPY --from=builder /app/node_modules ./node_modules
 # Next.js writes runtime caches (e.g. image optimization) under `.next/cache/**`.
 # The build stages create `.next` as root-owned; ensure our non-root runtime user can write.
 RUN mkdir -p /app/.next/cache/images \
-	&& chown -R nodeapp:nodeapp /app/.next
+	&& chown -R nodeapp:nodeapp /app/.next \
+	&& chgrp -R 0 /app/.next \
+	&& chmod -R g+rwX /app/.next
 
 USER nodeapp
 
