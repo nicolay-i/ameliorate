@@ -50,7 +50,8 @@ COPY --from=builder /app/node_modules ./node_modules
 RUN mkdir -p /app/.next/cache/images \
 	&& chown -R nodeapp:nodeapp /app/.next \
 	&& chgrp -R 0 /app/.next \
-	&& chmod -R g+rwX /app/.next
+	&& chmod -R g+rwX /app/.next \
+	&& chmod 1777 /app/.next/cache /app/.next/cache/images
 
 USER nodeapp
 

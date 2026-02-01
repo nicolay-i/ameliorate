@@ -20,6 +20,10 @@ const nextConfig = {
     BASE_URL: baseUrl,
   },
   images: {
+    // Some container hosts run with read-only filesystems or override the container user.
+    // In that case Next's image optimizer may fail writing to `.next/cache/images`.
+    // Set `NEXT_DISABLE_IMAGE_OPTIMIZATION=true` to fall back to serving original images.
+    unoptimized: process.env.NEXT_DISABLE_IMAGE_OPTIMIZATION === "true",
     remotePatterns: [
       {
         protocol: "https",
