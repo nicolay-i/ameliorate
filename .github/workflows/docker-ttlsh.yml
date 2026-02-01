@@ -1,0 +1,58 @@
+name: docker-ttlsh
+
+on:
+  workflow_dispatch:
+    inputs:
+      ttl:
+        description: "How long the image should live in ttl.sh (e.g. 1h, 24h)"
+        required: true
+        default: "24h"
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Compute ttl.sh image reference
+        id: meta
+        env:
+          TTL: ${{ github.event.inputs.ttl || '24h' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          owner="${GITHUB_REPOSITORY_OWNER,,}"
+          repo="$(basename "${GITHUB_REPOSITORY}")"
+          repo="${repo,,}"
+
+          # ttl.sh images are addressed like: ttl.sh/<name>:<ttl>
+          # Use a unique repo name to avoid collisions; keep the tag for TTL.
+          image="ttl.sh/${owner}-${repo}-${GITHUB_RUN_ID}:${TTL}"
+
+          echo "image=${image}" >> "$GITHUB_OUTPUT"
+          {
+            echo "## ttl.sh image"
+            echo
+            echo "- Image: \`${image}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.image }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
