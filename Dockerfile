@@ -4,6 +4,11 @@ FROM node:24.11.1-bookworm-slim AS base
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Prisma engines require OpenSSL at runtime/build time.
+RUN apt-get update -y \
+	&& apt-get install -y --no-install-recommends openssl \
+	&& rm -rf /var/lib/apt/lists/*
+
 
 FROM base AS deps
 
@@ -20,6 +25,10 @@ ENV NODE_ENV=production
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+# `src/db/generated` is created during `npm ci` (postinstall -> prisma generate) in the deps stage.
+# It's not guaranteed to be present in the build context, so copy it from deps.
+COPY --from=deps /app/src/db/generated ./src/db/generated
 
 RUN npm run build
 
