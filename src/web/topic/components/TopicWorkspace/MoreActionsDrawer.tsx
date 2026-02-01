@@ -113,7 +113,7 @@ const onScreenshotSubmit = ({ width, height }: ScreenshotFormData) => {
   // thanks react flow example https://reactflow.dev/examples/misc/download-image
   const viewport = getViewportForBounds(bounds, width, height, 0.125, 2, defaultFitViewPadding);
   const viewportElement = document.querySelector(".react-flow__viewport");
-  if (!viewportElement) throw new Error("Couldn't find viewport element to screenshot");
+  if (!viewportElement) throw new Error("Не удалось найти элемент viewport для снимка экрана");
 
   toPng(viewportElement as HTMLElement, {
     backgroundColor: "#fff",
@@ -132,7 +132,7 @@ const onScreenshotSubmit = ({ width, height }: ScreenshotFormData) => {
       a.click();
     })
     .catch((error: unknown) => {
-      console.error("Failed to export PNG:", error);
+      console.error("Не удалось экспортировать PNG:", error);
     });
 };
 

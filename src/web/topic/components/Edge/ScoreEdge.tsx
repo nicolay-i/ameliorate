@@ -1,7 +1,5 @@
 import { Box, Typography } from "@mui/material";
 import { EdgeLabelRenderer } from "@xyflow/react";
-import { lowerCase } from "es-toolkit";
-
 import { RelationName } from "@/common/edge";
 import { useSessionUser } from "@/web/common/hooks";
 import { openContextMenu } from "@/web/common/store/contextMenuActions";
@@ -20,6 +18,7 @@ import { nodeWidthPx } from "@/web/topic/components/Node/EditableNode.styles";
 import { setCustomEdgeLabel } from "@/web/topic/diagramStore/actions";
 import { useIsNodeSelected } from "@/web/topic/diagramStore/edgeHooks";
 import { useUserCanEditTopicData } from "@/web/topic/topicStore/store";
+import { relationLabels } from "@/web/topic/utils/edge";
 import { Edge } from "@/web/topic/utils/graph";
 import { useUnrestrictedEditing } from "@/web/view/actionConfigStore";
 import { useAvoidEdgeLabelOverlap } from "@/web/view/currentViewStore/layout";
@@ -139,7 +138,8 @@ export const ScoreEdge = ({ inReactFlow, ...flowEdge }: EdgeProps & Props) => {
     />
   );
 
-  const labelText = edge.data.customLabel ?? lowerCase(edge.label);
+  const defaultLabel = relationLabels[edge.label];
+  const labelText = edge.data.customLabel ?? defaultLabel;
 
   const label = (
     <StyledDiv
@@ -170,7 +170,7 @@ export const ScoreEdge = ({ inReactFlow, ...flowEdge }: EdgeProps & Props) => {
           suppressContentEditableWarning // https://stackoverflow.com/a/49639256/8409296
           onBlur={(event) => {
             const text = event.target.textContent.trim();
-            if (text && text !== lowerCase(edge.label) && text !== edge.data.customLabel)
+            if (text && text !== defaultLabel && text !== edge.data.customLabel)
               setCustomEdgeLabel(edge, text);
           }}
           // without nopan, clicking on the span won't let you edit text

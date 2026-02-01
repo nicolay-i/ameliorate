@@ -1,5 +1,3 @@
-import { lowerCase } from "es-toolkit";
-
 import { getSameCategoryEdgeTypes } from "@/common/edge";
 import { ContextMenuItem } from "@/web/common/components/ContextMenu/CloseOnClickMenuItem";
 import { NestedMenuItem } from "@/web/common/components/Menu/NestedMenuItem";
@@ -7,6 +5,7 @@ import { useSessionUser } from "@/web/common/hooks";
 import { changeEdgeType } from "@/web/topic/diagramStore/actions";
 import { useIsTableEdge } from "@/web/topic/diagramStore/edgeHooks";
 import { useUserCanEditTopicData } from "@/web/topic/topicStore/store";
+import { relationLabels } from "@/web/topic/utils/edge";
 import { Edge } from "@/web/topic/utils/graph";
 
 interface Props {
@@ -34,7 +33,7 @@ export const ChangeEdgeTypeMenuItem = ({ edge, parentMenuOpen }: Props) => {
               changeEdgeType(edge, type);
             }}
           >
-            {lowerCase(type)}
+            {relationLabels[type]}
           </ContextMenuItem>
         ))}
       </NestedMenuItem>

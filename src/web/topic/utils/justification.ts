@@ -1,8 +1,7 @@
-import { lowerCase } from "es-toolkit";
-
 import { justificationRelationNames } from "@/common/edge";
 import { errorWithData } from "@/common/errorHandling";
 import { prettyNodeTypes } from "@/common/node";
+import { relationLabels } from "@/web/topic/utils/edge";
 import { Edge, Graph, GraphPart, findGraphPartOrThrow, isNode } from "@/web/topic/utils/graph";
 
 // Using justificationEdges instead of justificationNodes because eventually we'll probably replace Root Claim nodes
@@ -20,7 +19,7 @@ export const getImplicitLabel = (arguedDiagramPartId: string, topicGraph: Graph)
     topicGraph.edges,
   );
   if (isNode(arguedDiagramPart)) {
-    return `"${arguedDiagramPart.data.label}" is an important ${prettyNodeTypes[arguedDiagramPart.type]} in this topic`;
+    return `"${arguedDiagramPart.data.label}" — важный ${prettyNodeTypes[arguedDiagramPart.type]} в этой теме`;
   } else {
     const sourceNode = topicGraph.nodes.find((node) => node.id === arguedDiagramPart.source);
     const targetNode = topicGraph.nodes.find((node) => node.id === arguedDiagramPart.target);
@@ -28,9 +27,11 @@ export const getImplicitLabel = (arguedDiagramPartId: string, topicGraph: Graph)
       throw errorWithData("edge nodes not found", arguedDiagramPart, topicGraph);
     }
 
+    const relationLabel = arguedDiagramPart.data.customLabel ?? relationLabels[arguedDiagramPart.label];
+
     return (
       `${prettyNodeTypes[sourceNode.type]} "${sourceNode.data.label}" ` +
-      lowerCase(arguedDiagramPart.data.customLabel ?? arguedDiagramPart.label) +
+      relationLabel +
       ` ${prettyNodeTypes[targetNode.type]} "${targetNode.data.label}"`
     );
   }

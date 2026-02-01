@@ -50,7 +50,7 @@ export const getPathDefinitionForEdge = (flowEdge: EdgeProps, avoidEdgeLabelOver
   }
 
   if (elkSections.length > 1) {
-    return throwError("No implementation yet for edge with multiple sections", flowEdge);
+    return throwError("Пока нет реализации для ребра с несколькими секциями", flowEdge);
   }
 
   /**
@@ -122,7 +122,8 @@ const drawBezierCurvesFromPoints = (
   endPoint: Point,
 ): string => {
   // If no bend points, we should've drawn a simple curve before getting here
-  if (bendPoints.length === 0) throwError("Expected bend points", startPoint, bendPoints, endPoint);
+  if (bendPoints.length === 0)
+    throwError("Ожидались точки изгиба", startPoint, bendPoints, endPoint);
 
   // not sure why end is treated as a control point, but algo seems to work and not sure a better name
   const controlPoints = [...bendPoints, endPoint];

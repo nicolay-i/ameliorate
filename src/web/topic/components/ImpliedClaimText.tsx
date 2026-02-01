@@ -1,6 +1,5 @@
-import { lowerCase } from "es-toolkit";
-
 import { prettyNodeTypes } from "@/common/node";
+import { relationLabels } from "@/web/topic/utils/edge";
 import { useEdgeNodes } from "@/web/topic/diagramStore/edgeHooks";
 import { GraphPart, isNode as checkIsNode } from "@/web/topic/utils/graph";
 
@@ -26,7 +25,7 @@ export const ImpliedClaimText = ({ graphPart }: { graphPart: GraphPart }) => {
       <i>
         <b>{prettyNodeTypes[edgeSourceNode.type]}</b> "{edgeSourceNode.data.label}"{" "}
         <b>
-          {lowerCase(graphPart.data.customLabel ?? graphPart.label)}{" "}
+          {graphPart.data.customLabel ?? relationLabels[graphPart.label]}{" "}
           {prettyNodeTypes[edgeTargetNode.type]}
         </b>{" "}
         "{edgeTargetNode.data.label}"

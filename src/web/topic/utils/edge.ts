@@ -1,7 +1,13 @@
-import { lowerCase, startCase } from "es-toolkit";
+import { lowerCase } from "es-toolkit";
 
 import { RelationName, justificationRelationNames } from "@/common/edge";
-import { NodeType, getSameCategoryNodeTypes, nodeTypes, researchNodeTypes } from "@/common/node";
+import {
+  NodeType,
+  getSameCategoryNodeTypes,
+  nodeTypes,
+  prettyNodeTypes,
+  researchNodeTypes,
+} from "@/common/node";
 import { type EffectType } from "@/web/topic/utils/effect";
 import { Edge, EdgeDirection, Graph, Node, findNodeOrThrow } from "@/web/topic/utils/graph";
 import { hasJustification } from "@/web/topic/utils/justification";
@@ -210,12 +216,31 @@ export interface DirectedToRelationWithCommonality extends DirectedToRelation {
   commonality: Commonality;
 }
 
-export const getDirectedRelationDescription = (relation: DirectedToRelation): string => {
-  const from: EdgeDirection = relation.as === "target" ? "source" : "target";
+export const relationLabels: Record<RelationName, string> = {
+  causes: "вызывает",
+  addresses: "устраняет",
+  accomplishes: "достигает",
+  contingencyFor: "резерв для",
+  has: "содержит",
+  criterionFor: "критерий для",
+  fulfills: "удовлетворяет",
+  impedes: "препятствует",
+  mitigates: "смягчает",
+  asksAbout: "спрашивает о",
+  potentialAnswerTo: "возможный ответ на",
+  relevantFor: "актуально для",
+  sourceOf: "источник для",
+  mentions: "упоминает",
+  supports: "поддерживает",
+  critiques: "критикует",
+  relatesTo: "связано с",
+};
 
-  return from === "source"
-    ? `this ${startCase(relation.source)} '${lowerCase(relation.name)}'` // e.g. this Problem causes
-    : `'${lowerCase(relation.name)}' this ${startCase(relation.target)}`; // e.g. causes this Problem
+export const getDirectedRelationDescription = (relation: DirectedToRelation): string => {
+  const relationLabel = relationLabels[relation.name];
+  const targetLabel = prettyNodeTypes[relation.target];
+
+  return `${relationLabel}: ${targetLabel}`;
 };
 
 /**

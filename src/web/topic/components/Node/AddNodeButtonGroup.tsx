@@ -22,6 +22,7 @@ import {
   DirectedToRelation,
   DirectedToRelationWithCommonality,
   getDirectedRelationDescription,
+  relationLabels,
 } from "@/web/topic/utils/edge";
 import { Node } from "@/web/topic/utils/graph";
 import { useExpandAddNodeButtons } from "@/web/view/userConfigStore";
@@ -135,7 +136,11 @@ const AddMenuSearch = ({ fromNodeId, addableRelations, className }: AddMenuSearc
                   : optionText}
                 <i className="text-slate-400">
                   {/* ideally the `existingEdge` would probably use the same format of relation description, but that'd require grabbing the source/target node types from the edge, which is a bit annoying to do, and showing at least the edge label seems fine enough */}
-                  {` (${option.addableRelationToNode ? getDirectedRelationDescription(option.addableRelationToNode) : option.existingEdge.label})`}
+                  {` (${
+                    option.addableRelationToNode
+                      ? getDirectedRelationDescription(option.addableRelationToNode)
+                      : relationLabels[option.existingEdge.label]
+                  })`}
                 </i>
               </span>
             </div>
@@ -270,7 +275,7 @@ const AddNodeButtonGroup = memo(
             <Tooltip
               tooltipHeading={
                 menuButtonTitle +
-                (expandAddNodeButtons || commonNodeButtons.length > 0 ? "" : " (uncommon)")
+                (expandAddNodeButtons || commonNodeButtons.length > 0 ? "" : " (нечасто)")
               }
               placement={openDirection}
               childrenOpensAMenu={true}
