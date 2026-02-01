@@ -18,7 +18,7 @@ export const SubscribeForm = ({ header, headerAnchor, action, buttonText }: Prop
         {header} {headerAnchor}
       </Typography>
 
-      <iframe name="hidden_iframe" title="hidden_iframe" style={{ display: "none" }} />
+      <iframe name="hidden_iframe" title="скрытый iframe" style={{ display: "none" }} />
 
       <form
         action={action}
@@ -30,7 +30,7 @@ export const SubscribeForm = ({ header, headerAnchor, action, buttonText }: Prop
       >
         <div className="flex flex-wrap justify-center gap-1">
           <InputBase
-            placeholder="Type your email..."
+            placeholder="Введите email..."
             type="email"
             name="email"
             required
@@ -51,7 +51,7 @@ export const SubscribeForm = ({ header, headerAnchor, action, buttonText }: Prop
 
       {submitted && (
         <Typography variant="body2" marginBottom="0 !important">
-          An email was sent to verify your email address.
+          Письмо для подтверждения email отправлено.
         </Typography>
       )}
     </div>

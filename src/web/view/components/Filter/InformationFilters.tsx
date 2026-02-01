@@ -13,7 +13,7 @@ export const InformationFilters = () => {
       <FormControlLabel
         label={
           <Stack direction="row" spacing={0.5}>
-            <Typography>Breakdown</Typography>
+            <Typography>Декомпозиция</Typography>
             <AutoStories />
           </Stack>
         }
@@ -31,7 +31,7 @@ export const InformationFilters = () => {
       <FormControlLabel
         label={
           <Stack direction="row" spacing={0.5}>
-            <Typography>Research</Typography>
+            <Typography>Исследование</Typography>
             <School />
           </Stack>
         }
@@ -49,7 +49,7 @@ export const InformationFilters = () => {
       <FormControlLabel
         label={
           <Stack direction="row" spacing={0.5}>
-            <Typography>Justification</Typography>
+            <Typography>Обоснование</Typography>
             <ThumbsUpDown />
           </Stack>
         }

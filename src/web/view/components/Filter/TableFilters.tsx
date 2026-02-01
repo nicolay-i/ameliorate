@@ -43,12 +43,22 @@ export const TableFilters = () => {
           <Stack spacing={1.5}>
             <NodeSelect
               name="centralProblemId"
-              label="Central Problem"
+              label="Центральная проблема"
               useNodeOptions={useProblems}
             />
 
-            <NodeSelect name="solutions" useNodeOptions={useProblemSolutions} multiple />
-            <NodeSelect name="criteria" useNodeOptions={useProblemCriteria} multiple />
+            <NodeSelect
+              name="solutions"
+              label="Решения"
+              useNodeOptions={useProblemSolutions}
+              multiple
+            />
+            <NodeSelect
+              name="criteria"
+              label="Критерии"
+              useNodeOptions={useProblemCriteria}
+              multiple
+            />
           </Stack>
         </form>
       </FormContext.Provider>

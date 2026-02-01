@@ -19,8 +19,11 @@ const NewTopic: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Create topic | Ameliorate</title>
-        <meta name="description" content="Create a topic to mutually understand with Ameliorate." />
+        <title>Создать тему | Ameliorate</title>
+        <meta
+          name="description"
+          content="Создайте тему, чтобы совместно разобраться в ней с Ameliorate."
+        />
       </Head>
 
       <CreateTopicForm creatorName={sessionUser.username} />

@@ -161,14 +161,14 @@ export const EditTopicForm = ({ topic, creatorName }: { topic: Topic; creatorNam
   const DeleteSection = (
     <>
       <Divider />
-      <Typography variant="h5">Danger Zone</Typography>
+      <Typography variant="h5">Опасная зона</Typography>
       <Button
         variant="contained"
         color="error"
         onClick={() => setDeleteDialogOpen(true)}
         sx={{ alignSelf: "flex-end" }}
       >
-        Delete Topic
+        Удалить тему
       </Button>
 
       <Dialog
@@ -177,10 +177,10 @@ export const EditTopicForm = ({ topic, creatorName }: { topic: Topic; creatorNam
         aria-labelledby="alert-dialog-title"
       >
         <DialogTitle id="alert-dialog-title">
-          Delete topic {creatorName}/{topic.title}?
+          Удалить тему {creatorName}/{topic.title}?
         </DialogTitle>
         <DialogContent>
-          <DialogContentText>This action cannot be undone.</DialogContentText>
+          <DialogContentText>Это действие нельзя отменить.</DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button
@@ -188,7 +188,7 @@ export const EditTopicForm = ({ topic, creatorName }: { topic: Topic; creatorNam
             disabled={deleteTopic.isLoading}
             onClick={() => setDeleteDialogOpen(false)}
           >
-            Cancel
+            Отмена
           </Button>
           <Button
             color="error"
@@ -196,7 +196,7 @@ export const EditTopicForm = ({ topic, creatorName }: { topic: Topic; creatorNam
             disabled={deleteTopic.isLoading}
             onClick={() => deleteTopic.mutate({ id: topic.id })}
           >
-            Delete Topic
+            Удалить тему
           </Button>
         </DialogActions>
       </Dialog>
@@ -229,7 +229,7 @@ const formSchema = (utils: ReturnType<typeof trpc.useUtils>, username: string, t
         });
         return !existingTopic;
       },
-      (title) => ({ message: `Title ${title} is not available.` }),
+      (title) => ({ message: `Название ${title} недоступно.` }),
     ),
     description: topicSchema.shape.description,
     visibility: topicSchema.shape.visibility,
@@ -286,7 +286,7 @@ const TopicForm = ({ topic, creatorName, onSubmit, DeleteSection }: Props) => {
       >
         <Stack spacing={2} sx={{ width: "600px", margin: 2 }}>
           <Typography variant="h4" sx={{ marginBottom: 2 }}>
-            {newTopic ? "Create a new topic" : "Topic Settings"}
+            {newTopic ? "Создать новую тему" : "Настройки темы"}
           </Typography>
 
           <Stack direction="row" spacing={1} sx={{ width: "100%" }}>
@@ -295,7 +295,7 @@ const TopicForm = ({ topic, creatorName, onSubmit, DeleteSection }: Props) => {
               disabled
               required
               value={creatorName}
-              label="Username"
+              label="Имя пользователя"
               className="max-w-[33%]"
             />
             <Typography variant="h5" sx={{ pt: "0.75rem" }}>
@@ -303,7 +303,7 @@ const TopicForm = ({ topic, creatorName, onSubmit, DeleteSection }: Props) => {
             </Typography>
             <TextField
               {...register("title")}
-              label="Title"
+              label="Название"
               error={!!errors.title}
               helperText={errors.title?.message}
               required
@@ -314,7 +314,7 @@ const TopicForm = ({ topic, creatorName, onSubmit, DeleteSection }: Props) => {
           {/* seems to function properly but throws "too many rerenders" in development; think we can just leave it til a fix comes https://github.com/mui/material-ui/issues/33081 */}
           <TextField
             {...register("description")}
-            label="Description"
+            label="Описание"
             error={!!errors.description}
             helperText={errors.description?.message}
             multiline
@@ -324,7 +324,7 @@ const TopicForm = ({ topic, creatorName, onSubmit, DeleteSection }: Props) => {
           <Stack direction="row">
             <TextField
               {...register("visibility")}
-              label="Visibility"
+              label="Видимость"
               error={!!errors.visibility}
               helperText={errors.visibility?.message}
               required
@@ -341,20 +341,20 @@ const TopicForm = ({ topic, creatorName, onSubmit, DeleteSection }: Props) => {
             <Tooltip
               title={
                 <span>
-                  This determines who can view your topic.
+                  Это определяет, кто может видеть вашу тему.
                   <br />
                   <br />
-                  Private: only you can view your topic (note: Ameliorate maintainers still have
-                  access to any topic you save - you must use the playground if you want your topic
-                  to be truly private).
+                  Private: только вы можете просматривать тему (примечание: у команды Ameliorate все
+                  равно есть доступ к сохранённым темам — используйте песочницу, если нужна
+                  настоящая приватность).
                   <br />
                   <br />
-                  Unlisted: anyone with the link can view your topic.
+                  Unlisted: тему может увидеть любой, у кого есть ссылка.
                   <br />
                   <br />
-                  Public: anyone with the link can view your topic, but additionally your topic will
-                  show up in your topic list, and it may show up in future topic-sharing
-                  functionality, such as topic search.
+                  Public: тему может увидеть любой, у кого есть ссылка, но кроме того она появится в
+                  вашем списке тем и может показываться в будущем функционале обмена темами, например
+                  в поиске.
                 </span>
               }
               enterTouchDelay={0} // allow touch to immediately trigger
@@ -362,7 +362,7 @@ const TopicForm = ({ topic, creatorName, onSubmit, DeleteSection }: Props) => {
             >
               <IconButton
                 color="info"
-                aria-label="Visibility info"
+                aria-label="Информация о видимости"
                 sx={{
                   // Don't make it look like clicking will do something, since it won't.
                   // Using a button here is an attempt to make it accessible, since the tooltip will show
@@ -381,22 +381,22 @@ const TopicForm = ({ topic, creatorName, onSubmit, DeleteSection }: Props) => {
             name="allowAnyoneToEdit"
             render={({ field }) => (
               <FormControlLabel
-                label="Allow anyone to edit this topic"
+                label="Разрешить всем редактировать эту тему"
                 control={<Checkbox {...field} checked={field.value} />}
               />
             )}
           />
 
           <Typography variant="body2">
-            View your topic at: ameliorate.app/{creatorName}/{topicTitle || "{title}"}
+            Ссылка на тему: ameliorate.app/{creatorName}/{topicTitle || "{title}"}
           </Typography>
 
           <Stack direction="row" spacing={1} justifyContent="flex-end">
             <Button onClick={() => reset()} disabled={!isDirty}>
-              Cancel
+              Отмена
             </Button>
             <Button type="submit" variant="contained" disabled={!isDirty}>
-              {newTopic ? "Create" : "Save"}
+              {newTopic ? "Создать" : "Сохранить"}
             </Button>
           </Stack>
 

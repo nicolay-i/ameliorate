@@ -26,12 +26,12 @@ export const SiteBanner = () => {
       onClose={() => hideBanner()}
     >
       <span className="hidden sm:[display:unset]">
-        🚀 Looking for an easy way to help out? Pilot test Ameliorate!{" "}
+        🚀 Хотите помочь простым способом? Протестируйте Ameliorate в пилоте!{" "}
       </span>
       {/* Shorter message so it can stay on one line for small screens, so we can have consistent height calcs for showing the second home page section on initial load */}
-      <span className="sm:hidden">🚀 Help pilot test Ameliorate! </span>
+      <span className="sm:hidden">🚀 Помогите с пилотным тестом Ameliorate! </span>
       <Link href="https://ameliorate.app/docs/pilot-testing" target="_blank">
-        Read more
+        Подробнее
       </Link>
     </Alert>
   );

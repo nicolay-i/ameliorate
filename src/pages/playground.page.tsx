@@ -47,7 +47,7 @@ const Playground: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Playground | Ameliorate</title>
+        <title>Песочница | Ameliorate</title>
       </Head>
 
       <DynamicTopicWorkspace />

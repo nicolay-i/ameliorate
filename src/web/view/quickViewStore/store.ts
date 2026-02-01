@@ -45,14 +45,14 @@ export const generateBasicViews = (): QuickView[] => {
     {
       id: shortUUID.generate(), // generate UUIDs that are easier to read (shorter, alphanumeric)
       type: "quick",
-      title: "Breakdown",
+      title: "Декомпозиция",
       order: 0,
       viewState: initialViewState,
     },
     {
       id: shortUUID.generate(),
       type: "quick",
-      title: "Research",
+      title: "Исследование",
       order: 1,
       viewState: withDefaults({ categoriesToShow: ["research"] }, initialViewState),
     },
@@ -112,10 +112,11 @@ export const useCanUndoRedo = () => {
 const getNewTitle = (existingTitles: string[]) => {
   // eslint-disable-next-line functional/no-loop-statements, functional/no-let
   for (let i = 0; i < existingTitles.length; i++) {
-    if (!existingTitles.includes(`View ${i + 1}`)) return `View ${i + 1}`;
+    const candidate = `Вид ${i + 1}`;
+    if (!existingTitles.includes(candidate)) return candidate;
   }
 
-  return `View ${existingTitles.length + 1}`;
+  return `Вид ${existingTitles.length + 1}`;
 };
 
 export const createView = () => {

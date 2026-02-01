@@ -1,10 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Stack } from "@mui/material";
-import { startCase } from "es-toolkit";
 import { useCallback, useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
-import { nodeTypes } from "@/common/node";
+import { nodeTypes, prettyNodeTypes } from "@/common/node";
 import { deepIsEqual } from "@/common/utils";
 import { FormContext } from "@/web/common/components/Form/FormContext";
 import { NodeSelect } from "@/web/common/components/Form/NodeSelect";
@@ -25,7 +24,7 @@ import {
 // so that dropdown options can be startCased but ids can still be type-safe
 const nodeTypeOptions = nodeTypes.map((type) => ({
   id: type,
-  label: startCase(type),
+  label: prettyNodeTypes[type],
   beforeSlot: <ColoredNodeIcon type={type} className="mr-2 rounded-sm p-0.5" />,
 }));
 
@@ -59,7 +58,7 @@ export const GeneralFilters = () => {
               <Select name="nodeTypes" options={nodeTypeOptions} multiple />
 
               <Stack direction="row" spacing={1}>
-                <Switch name="showOnlyScored" label="Show only nodes scored" />
+                <Switch name="showOnlyScored" label="Показывать только оценённые узлы" />
                 <Select name="scoredComparer" options={scoredComparers} label="" width="50px" />
                 <Select name="scoreToCompare" options={possibleScores} label="" width="50px" />
               </Stack>
@@ -80,7 +79,7 @@ export const GeneralFilters = () => {
           {format === "table" && (
             <Stack spacing={1}>
               <Stack direction="row" spacing={1}>
-                <Switch name="showOnlyScored" label="Show only nodes scored" />
+                <Switch name="showOnlyScored" label="Показывать только оценённые узлы" />
                 <Select name="scoredComparer" options={scoredComparers} label="" width="50px" />
                 <Select name="scoreToCompare" options={possibleScores} label="" width="50px" />
               </Stack>

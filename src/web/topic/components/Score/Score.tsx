@@ -97,7 +97,7 @@ export const Score = ({ graphPartId }: ScoreProps) => {
   return (
     <>
       <Tooltip
-        tooltipHeading="See score info"
+        tooltipHeading="Подробнее об оценке"
         placement="top"
         // hack to hide tooltip when quick scoring because score pie will pop up quickly and the tooltip will just get in the way
         tooltipPopperClassName={quickScoring ? "hidden" : ""}

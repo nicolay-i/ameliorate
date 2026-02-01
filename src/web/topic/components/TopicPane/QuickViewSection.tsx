@@ -67,8 +67,8 @@ const QuickViewRow = ({ view, selected, editable, onEdit }: RowProps) => {
           {editable && (
             <IconButton
               color="inherit"
-              title="More Actions"
-              aria-label="More Actions"
+              title="Дополнительные действия"
+              aria-label="Дополнительные действия"
               onClick={(e) => {
                 setActionsMenuAnchorEl(e.currentTarget);
                 e.stopPropagation();
@@ -93,7 +93,7 @@ const QuickViewRow = ({ view, selected, editable, onEdit }: RowProps) => {
             <ListItemIcon>
               <KeyboardDoubleArrowUp fontSize="small" />
             </ListItemIcon>
-            <ListItemText>Move up</ListItemText>
+            <ListItemText>Переместить выше</ListItemText>
           </CloseOnClickMenuItem>
 
           <CloseOnClickMenuItem
@@ -103,7 +103,7 @@ const QuickViewRow = ({ view, selected, editable, onEdit }: RowProps) => {
             <ListItemIcon>
               <KeyboardDoubleArrowDown fontSize="small" />
             </ListItemIcon>
-            <ListItemText>Move down</ListItemText>
+            <ListItemText>Переместить ниже</ListItemText>
           </CloseOnClickMenuItem>
 
           <CloseOnClickMenuItem
@@ -113,7 +113,7 @@ const QuickViewRow = ({ view, selected, editable, onEdit }: RowProps) => {
             <ListItemIcon>
               <Edit fontSize="small" />
             </ListItemIcon>
-            <ListItemText>Edit</ListItemText>
+            <ListItemText>Редактировать</ListItemText>
           </CloseOnClickMenuItem>
 
           <CloseOnClickMenuItem
@@ -126,7 +126,7 @@ const QuickViewRow = ({ view, selected, editable, onEdit }: RowProps) => {
             <ListItemIcon>
               <Save fontSize="small" />
             </ListItemIcon>
-            <ListItemText>Overwrite</ListItemText>
+            <ListItemText>Перезаписать</ListItemText>
           </CloseOnClickMenuItem>
 
           <CloseOnClickMenuItem
@@ -136,7 +136,7 @@ const QuickViewRow = ({ view, selected, editable, onEdit }: RowProps) => {
             <ListItemIcon>
               <Delete fontSize="small" />
             </ListItemIcon>
-            <ListItemText>Delete</ListItemText>
+            <ListItemText>Удалить</ListItemText>
           </CloseOnClickMenuItem>
         </Menu>
       )}
@@ -163,14 +163,14 @@ export const QuickViewSection = () => {
         disablePadding={false}
         sx={{ paddingY: 0, height: "40px" }} // icon buttons have padding, so this extra padding isn't necessary, and use a consistent height whether or not icon buttons are showing
       >
-        <ListItemText primary="Quick Views" className="*:font-bold" />
+        <ListItemText primary="Быстрые виды" className="*:font-bold" />
 
         {userCanEditTopicData && (
           <>
             <IconButton
               color="inherit"
-              title="Undo"
-              aria-label="Undo"
+              title="Отменить"
+              aria-label="Отменить"
               disabled={!canUndo}
               onClick={() => undo()}
             >
@@ -178,8 +178,8 @@ export const QuickViewSection = () => {
             </IconButton>
             <IconButton
               color="inherit"
-              title="Redo"
-              aria-label="Redo"
+              title="Повторить"
+              aria-label="Повторить"
               disabled={!canRedo}
               onClick={() => redo()}
             >
@@ -190,8 +190,8 @@ export const QuickViewSection = () => {
 
             <IconButton
               color="inherit"
-              title="Create View"
-              aria-label="Create View"
+              title="Создать вид"
+              aria-label="Создать вид"
               onClick={() => createView()}
             >
               <Add />
@@ -207,7 +207,7 @@ export const QuickViewSection = () => {
               <ListItemIcon>
                 <Visibility />
               </ListItemIcon>
-              <ListItemText primary="No quick views yet!" />
+              <ListItemText primary="Пока нет быстрых видов!" />
             </ListItemButton>
           </ListItem>
         )}

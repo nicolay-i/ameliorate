@@ -61,6 +61,21 @@ export const GraphPartDetails = ({ graphPart, selectedTab, setSelectedTab }: Pro
   const indicateResearch = [...questions, ...facts, ...sources].length > 0;
   const indicateComments = commentCount > 0;
 
+  const tabLabel = (tab: DetailsTab) => {
+    switch (tab) {
+      case "Basics":
+        return "Основное";
+      case "Justification":
+        return "Обоснование";
+      case "Research":
+        return "Исследование";
+      case "Comments":
+        return "Комментарии";
+      default:
+        return tab;
+    }
+  };
+
   return (
     // min-h-0 to ensure content can shrink within parent flex container, allowing inner containers to control scrolling https://stackoverflow.com/a/66689926/8409296
     // grow so that it can take up the full pane's space and not overflow if a node is at the bottom and has an indicator overhanging
@@ -83,35 +98,35 @@ export const GraphPartDetails = ({ graphPart, selectedTab, setSelectedTab }: Pro
                 <Tab
                   icon={indicateBasics ? <Article /> : <ArticleOutlined />}
                   value="Basics"
-                  title="Basics"
-                  aria-label="Basics"
+                  title={tabLabel("Basics")}
+                  aria-label={tabLabel("Basics")}
                 />
                 <Tab
                   icon={indicateJustification ? <ThumbsUpDown /> : <ThumbsUpDownOutlined />}
                   value="Justification"
-                  title="Justification"
-                  aria-label="Justification"
+                  title={tabLabel("Justification")}
+                  aria-label={tabLabel("Justification")}
                 />
                 {partIsNode && (
                   <Tab
                     icon={indicateResearch ? <School /> : <SchoolOutlined />}
                     value="Research"
-                    title="Research"
-                    aria-label="Research"
+                    title={tabLabel("Research")}
+                    aria-label={tabLabel("Research")}
                   />
                 )}
                 <Tab
                   icon={indicateComments ? <ChatBubble /> : <ChatBubbleOutline />}
                   value="Comments"
-                  title="Comments"
-                  aria-label="Comments"
+                  title={tabLabel("Comments")}
+                  aria-label={tabLabel("Comments")}
                 />
               </TabList>
 
               <TabPanel value="Basics">
                 <section className="flex flex-col items-center px-0.5 py-2">
                   <Typography variant="h6" component="h2" className="mb-2">
-                    Basics
+                    Основное
                   </Typography>
                   <DetailsBasicsSection graphPart={graphPart} />
                 </section>
@@ -119,7 +134,7 @@ export const GraphPartDetails = ({ graphPart, selectedTab, setSelectedTab }: Pro
               <TabPanel value="Justification">
                 <section className="flex flex-col items-center px-0.5 py-2">
                   <Typography variant="h6" component="h2" className="mb-2">
-                    Justification
+                    Обоснование
                   </Typography>
                   <DetailsJustificationSection graphPart={graphPart} />
                 </section>
@@ -128,7 +143,7 @@ export const GraphPartDetails = ({ graphPart, selectedTab, setSelectedTab }: Pro
                 <TabPanel value="Research">
                   <section className="flex flex-col items-center px-0.5 py-2">
                     <Typography variant="h6" component="h2" className="mb-2">
-                      Research
+                      Исследование
                     </Typography>
                     <DetailsResearchSection node={graphPart} />
                   </section>
@@ -137,7 +152,7 @@ export const GraphPartDetails = ({ graphPart, selectedTab, setSelectedTab }: Pro
               <TabPanel value="Comments">
                 <section className="flex flex-col items-center p-2">
                   <Typography variant="h6" component="h2" className="mb-2">
-                    Comments
+                    Комментарии
                   </Typography>
                   <CommentSection
                     parentId={graphPart.id}
@@ -153,14 +168,14 @@ export const GraphPartDetails = ({ graphPart, selectedTab, setSelectedTab }: Pro
             {/* So for sections with nodes, subsections need to manage padding themselves if they need it, e.g. for Notes */}
             <section className="flex flex-col items-center border-b px-0.5 py-2">
               <Typography variant="h6" component="h2" className="mb-2 flex items-center gap-2.5">
-                <Article /> Basics
+                <Article /> Основное
               </Typography>
               <DetailsBasicsSection graphPart={graphPart} />
             </section>
 
             <section className="flex flex-col items-center border-b px-0.5 py-2">
               <Typography variant="h6" component="h2" className="mb-2 flex items-center gap-2.5">
-                <ThumbsUpDown /> Justification
+                <ThumbsUpDown /> Обоснование
               </Typography>
               <DetailsJustificationSection graphPart={graphPart} />
             </section>
@@ -169,7 +184,7 @@ export const GraphPartDetails = ({ graphPart, selectedTab, setSelectedTab }: Pro
             {partIsNode && (
               <section className="flex flex-col items-center border-b px-0.5 py-2">
                 <Typography variant="h6" component="h2" className="mb-2 flex items-center gap-2.5">
-                  <School /> Research
+                  <School /> Исследование
                 </Typography>
                 <DetailsResearchSection node={graphPart} />
               </section>
@@ -177,7 +192,7 @@ export const GraphPartDetails = ({ graphPart, selectedTab, setSelectedTab }: Pro
 
             <section className="flex flex-col items-center p-2">
               <Typography variant="h6" component="h2" className="mb-2 flex items-center gap-2.5">
-                <ChatBubble /> Comments
+                <ChatBubble /> Комментарии
               </Typography>
               <CommentSection parentId={graphPart.id} parentType={partIsNode ? "node" : "edge"} />
             </section>

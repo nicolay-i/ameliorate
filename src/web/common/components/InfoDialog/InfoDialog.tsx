@@ -1,7 +1,6 @@
 import { Close, Error, Info, Warning } from "@mui/icons-material";
 import { IconButton, Popper, Typography } from "@mui/material";
 import { Mask } from "@reactour/mask";
-import { startCase } from "es-toolkit";
 import { ReactNode, useEffect, useState } from "react";
 
 import { Anchor, InfoType, emitter } from "@/web/common/components/InfoDialog/infoEvents";
@@ -72,10 +71,12 @@ export const InfoDialog = () => {
           "z-99999 max-w-[min(80svw,36rem)] rounded-lg bg-white" +
           (anchorEl ? "" : " left-1/2! top-1/2! -translate-x-1/2! -translate-y-1/2!")
         }
-        aria-label="Info Dialog"
+        aria-label="Информационное окно"
       >
         {({ placement }) => {
           const isBelow = placement.startsWith("bottom");
+          const infoTypeLabel =
+            infoType === "error" ? "Ошибка" : infoType === "warning" ? "Предупреждение" : "Информация";
           return (
             <>
               {/* functionality to only show the arrow when there's an anchorEl */}
@@ -99,12 +100,12 @@ export const InfoDialog = () => {
               <div className="flex items-center justify-between rounded-t-lg bg-paperShaded-main px-2 py-1">
                 <InfoTypeIcon color={infoType} fontSize="small" />
 
-                <Typography className="font-bold">{startCase(infoType)}</Typography>
+                <Typography className="font-bold">{infoTypeLabel}</Typography>
 
                 <IconButton
                   size="small"
-                  title="Close"
-                  aria-label="Close"
+                  title="Закрыть"
+                  aria-label="Закрыть"
                   onClick={() => setOpen(false)}
                 >
                   <Close fontSize="small" />

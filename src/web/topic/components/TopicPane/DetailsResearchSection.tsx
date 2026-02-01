@@ -56,7 +56,7 @@ export const DetailsResearchSection = ({ node }: Props) => {
             <EditableNode key={researchNode.id} node={researchNode} />
           ))
         ) : (
-          <Typography variant="body2">No research nodes yet!</Typography>
+          <Typography variant="body2">Пока нет исследовательских узлов!</Typography>
         )}
       </NodeList>
     </>

@@ -16,16 +16,16 @@ export const navigatingTopicSteps: StepType[] = [
     selector: quickViewDropdownSelector,
     content: (
       <StepContent
-        stepTitle="Quick Views"
+        stepTitle="Быстрые виды"
         text={
-          <span>Quick Views allow you to easily jump between different aspects of a topic.</span>
+          <span>Быстрые виды помогают легко переключаться между аспектами темы.</span>
         }
         imageSlot={
           <>
             <Image
               key="https://github.com/user-attachments/assets/87055acd-debb-45f2-981f-ef511e770222"
               src="https://github.com/user-attachments/assets/87055acd-debb-45f2-981f-ef511e770222"
-              alt="clicking between views in cars-going-too-fast topic"
+              alt="переключение между видами в теме cars-going-too-fast"
               width={1096}
               height={847}
               unoptimized // warning without this - gifs aren't optimized by nextjs apparently
@@ -33,7 +33,7 @@ export const navigatingTopicSteps: StepType[] = [
               className="rounded-xl border bg-paperPlain-main p-2 shadow-sm"
             />
             <Typography variant="caption">
-              From:{" "}
+              Из:{" "}
               <Link
                 href="https://ameliorate.app/examples/detailed-cars-going-too-fast"
                 target="_blank"
@@ -50,13 +50,13 @@ export const navigatingTopicSteps: StepType[] = [
     selector: `.${tutorialDefaultAnchorClass}`,
     content: (
       <StepContent
-        stepTitle="More details"
+        stepTitle="Дополнительные детали"
         text={
           <span>
-            Indicators convey at-a-glance where extra details are.
+            Индикаторы показывают, где есть дополнительные детали.
             <br />
             <br />
-            Details can be found by selecting the piece and looking at the Details Pane{" "}
+            Детали можно увидеть, выбрав элемент и посмотрев в панель «Детали»{" "}
             <VerticalSplit color="primary" />.
           </span>
         }
@@ -65,7 +65,7 @@ export const navigatingTopicSteps: StepType[] = [
             <Image
               key="https://github.com/user-attachments/assets/bc02d4e2-5507-49d6-bd10-a32ea0ebd841"
               src="https://github.com/user-attachments/assets/bc02d4e2-5507-49d6-bd10-a32ea0ebd841"
-              alt="indicators"
+              alt="индикаторы"
               width={600}
               height={467}
               unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940
@@ -80,22 +80,21 @@ export const navigatingTopicSteps: StepType[] = [
     selector: `.${tutorialDefaultAnchorClass}`,
     content: (
       <StepContent
-        stepTitle="Perspectives"
+        stepTitle="Перспективы"
         text={
           <span>
-            If you're logged in, you'll see your own scores, otherwise you'll see the scores of the
-            topic's creator.
+            Если вы вошли, вы увидите свои оценки; иначе — оценки автора темы.
             <br />
             <br />
-            You can compare multiple people's scores via the Compare button <Group />, or select
-            specific perspectives via the More Actions Drawer <Build />.
+            Можно сравнить оценки нескольких людей кнопкой «Сравнить» <Group />, либо выбрать
+            конкретные перспективы в панели «Другие действия» <Build />.
           </span>
         }
         imageSlot={
           <Image
             key="https://github.com/user-attachments/assets/bdf7fd16-d44a-4a74-8e5e-24cd577dc647"
             src="https://github.com/user-attachments/assets/bdf7fd16-d44a-4a74-8e5e-24cd577dc647"
-            alt="viewing other perspectives"
+            alt="просмотр других перспектив"
             width={492}
             height={411}
             unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940
@@ -109,13 +108,13 @@ export const navigatingTopicSteps: StepType[] = [
     selector: `.${tutorialDefaultAnchorClass}`,
     content: (
       <StepContent
-        stepTitle='Completed "Navigating a topic"! 🎉'
-        text="Yay! You've learned the basics for viewing in Ameliorate. Now you can go forth and understand other people's topics! 🔥"
+        stepTitle='Готово: "Навигация по теме"! 🎉'
+        text="Отлично! Вы изучили основы просмотра в Ameliorate. Теперь можно разбираться в темах других людей! 🔥"
         imageSlot={
           <Image
             key={celebrateGif}
             src={celebrateGif}
-            alt="Celebrate completed tutorial!"
+            alt="Празднуем завершение обучения!"
             width={256}
             height={143}
             unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940

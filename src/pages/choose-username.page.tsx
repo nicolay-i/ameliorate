@@ -40,7 +40,7 @@ const formSchema = (utils: ReturnType<typeof trpc.useUtils>) => {
         const user = await utils.user.findByUsername.fetch({ username });
         return !user;
       },
-      (username) => ({ message: `Username ${username} is not available.` }),
+      (username) => ({ message: `Имя пользователя ${username} недоступно.` }),
     ),
   });
 };
@@ -83,9 +83,9 @@ const CreateUserPage = () => {
   if (!authUser.email_verified) {
     return (
       <Typography variant="h5" textAlign="center" sx={{ margin: 2 }}>
-        An email was sent to verify your email address.
+        Письмо для подтверждения email отправлено.
         <br />
-        Please verify your email address, then refresh the page.
+        Пожалуйста, подтвердите email, затем обновите страницу.
       </Typography>
     );
   }
@@ -111,10 +111,10 @@ const CreateUserPage = () => {
   return (
     <>
       <Head>
-        <title>Choose username | Ameliorate</title>
+        <title>Выберите имя пользователя | Ameliorate</title>
         <meta
           name="description"
-          content="Choose your username to start solving problems with Ameliorate."
+          content="Выберите имя пользователя, чтобы начать решать задачи с Ameliorate."
         />
       </Head>
 
@@ -123,19 +123,19 @@ const CreateUserPage = () => {
         style={{ display: "flex", justifyContent: "center" }}
       >
         <Stack spacing={1} sx={{ width: "600px", textAlign: "center", margin: 1 }}>
-          <Typography variant="h4">Choose your username</Typography>
+          <Typography variant="h4">Выберите имя пользователя</Typography>
           <Typography variant="body1">
-            Your username is how other users will refer to you and find topics you create.
+            Имя пользователя нужно, чтобы другие могли находить ваши темы и обращаться к вам.
           </Typography>
           <TextField
             {...register("username")}
-            label="Username"
+            label="Имя пользователя"
             error={!!errors.username}
             helperText={errors.username?.message}
             required
           />
           <Button type="submit" variant="contained">
-            Choose username
+            Выбрать имя пользователя
           </Button>
         </Stack>
       </form>

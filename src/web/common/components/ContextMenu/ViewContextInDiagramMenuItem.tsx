@@ -10,7 +10,7 @@ export const ViewContextInDiagramMenuItem = ({ graphPart }: { graphPart: GraphPa
 
   return (
     <ContextMenuItem onClick={() => viewContext(graphPart.id)}>
-      View context in diagram
+      Показать контекст на диаграмме
     </ContextMenuItem>
   );
 };

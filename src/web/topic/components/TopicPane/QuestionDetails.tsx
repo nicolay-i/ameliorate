@@ -18,7 +18,7 @@ export const QuestionDetails = ({ questionNode }: Props) => {
     <>
       {partAskingAbout ? (
         <div className="mt-2 flex flex-col items-center gap-0.5">
-          <Typography variant="body1">Asks About</Typography>
+          <Typography variant="body1">Относится к</Typography>
 
           <div className="flex items-center justify-center">
             {isNode(partAskingAbout) ? (
@@ -33,7 +33,7 @@ export const QuestionDetails = ({ questionNode }: Props) => {
       )}
 
       <div className="mt-4 flex flex-col items-center gap-0.5">
-        <Typography variant="body1">Potential Answers</Typography>
+        <Typography variant="body1">Возможные ответы</Typography>
 
         <Stack direction="row" justifyContent="center" alignItems="center" marginBottom="8px">
           <AddNodeButton
@@ -52,7 +52,7 @@ export const QuestionDetails = ({ questionNode }: Props) => {
           {answers.length > 0 ? (
             answers.map((answer) => <EditableNode key={answer.id} node={answer} />)
           ) : (
-            <Typography variant="body2">No answers yet!</Typography>
+            <Typography variant="body2">Пока нет ответов!</Typography>
           )}
         </NodeList>
       </div>

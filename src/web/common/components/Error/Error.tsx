@@ -30,5 +30,5 @@ export const NotFoundError = () => {
 export const NotLoggedInError = () => {
   logWarning("NotLoggedInError rendered", 401);
 
-  return <NextError statusCode={401} title="You must be logged in to view this page" />;
+  return <NextError statusCode={401} title="Чтобы просмотреть эту страницу, нужно войти" />;
 };

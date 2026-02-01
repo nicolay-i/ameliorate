@@ -72,7 +72,7 @@ const buildEdgeCell = (edge: Edge): Cell => {
 const buildTotalsHeader = (): HeaderCell => {
   return {
     id: "totals",
-    label: "Solution Totals",
+    label: "Итоги решений",
     data: "totals",
     render: () => <TotalsHeaderCell />,
   };
@@ -144,7 +144,7 @@ const buildTableDefs = (
   const columnData: MRT_ColumnDef<RowData>[] = [
     {
       accessorKey: "rowHeaderLabel", // this determines how cols should sort/filter
-      header: useSolutionsForColumns ? "criteria" : "solutions",
+      header: useSolutionsForColumns ? "критерии" : "решения",
       Header: headerRow[0].render(),
       enableHiding: false,
       Cell: ({ row }) => row.original.rowHeader.render(),
@@ -202,7 +202,7 @@ export const CriteriaTable = () => {
   if (!problemNode)
     return (
       <Box display="flex" justifyContent="center" alignItems="center" height="100%">
-        <Typography>Select a central problem node to view the tradeoff table</Typography>
+        <Typography>Выберите центральный узел проблемы, чтобы увидеть таблицу компромиссов</Typography>
       </Box>
     );
 
@@ -255,7 +255,7 @@ export const CriteriaTable = () => {
           </>
         )}
 
-        <Tooltip title="Transpose Table">
+        <Tooltip title="Транспонировать таблицу">
           <Button
             size="small"
             variant="contained"

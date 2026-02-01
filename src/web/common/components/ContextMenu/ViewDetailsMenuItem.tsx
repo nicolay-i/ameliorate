@@ -11,7 +11,7 @@ export const ViewDetailsMenuItem = ({ graphPart }: { graphPart: GraphPart }) => 
         emitter.emit("viewBasics");
       }}
     >
-      View details
+      Показать детали
     </ContextMenuItem>
   );
 };

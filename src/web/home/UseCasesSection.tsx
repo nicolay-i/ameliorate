@@ -5,35 +5,35 @@ import { Card } from "@/web/home/Card";
 export const UseCasesSection = () => {
   return (
     <div className="flex flex-col items-center text-center">
-      <Typography variant="h4">Using your diagram</Typography>
+      <Typography variant="h4">Как использовать диаграмму</Typography>
       <Typography variant="body1">
-        Once you've got your diagram, there are a few different ways you can use it.
+        Когда диаграмма готова, есть несколько способов её применения.
       </Typography>
 
       <div className="mt-4 flex flex-wrap justify-center gap-2 text-start *:w-full md:*:w-56">
         <Card
-          title="Grasp your own thoughts"
-          description="Lay out your ideas with all of their nuance to better think through a problem and make better decisions for yourself."
+          title="Разобраться в собственных мыслях"
+          description="Разложите идеи со всеми нюансами, чтобы лучше продумать проблему и принять более точные решения."
         />
         <Card
-          title="Solicit feedback"
-          description="Send out your diagram for others to leave their feedback on - their questions, suggestions, concerns, and opinions."
+          title="Собрать обратную связь"
+          description="Поделитесь диаграммой и получите вопросы, предложения, опасения и мнения других."
         />
         <Card
-          title="Guide discussion"
-          description="Bring your diagram to a meeting to make it easy to keep the discussion focused, knowing precisely where disagreements or uncertainties lie."
+          title="Направлять обсуждение"
+          description="Используйте диаграмму на встрече, чтобы держать разговор в фокусе и видеть, где возникают разногласия или неопределённость."
         />
         <Card
-          title="Bring others up-to-speed"
-          description="Present your diagram or let others click around at their own pace to efficiently catch up about the current state of a problem or solution."
+          title="Быстро ввести в курс"
+          description="Покажите диаграмму или дайте людям исследовать её в своём темпе, чтобы быстро понять текущее состояние проблемы или решения."
         />
         <Card
-          title="Re-visit reasoning"
-          description="When new information is discovered, update an old diagram and reconsider it anew."
+          title="Пересмотреть аргументацию"
+          description="Когда появляется новая информация, обновите диаграмму и пересмотрите выводы."
         />
         <Card
-          title="Create decision transparency"
-          description="Leave behind a scored diagram after a decision is made, as an explanation of why the decision was the way it was."
+          title="Прозрачность решений"
+          description="Оставьте оценённую диаграмму после принятого решения как объяснение, почему был выбран именно этот путь."
         />
       </div>
     </div>

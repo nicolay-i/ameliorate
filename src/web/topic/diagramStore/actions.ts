@@ -69,7 +69,7 @@ export const setCustomNodeType = (node: Node, value: string) => {
   if (!parsed.success) {
     showError(
       "invalidCustomNodeType",
-      parsed.error.errors[0]?.message ?? "Invalid custom node type",
+      parsed.error.errors[0]?.message ?? "Недопустимый пользовательский тип узла",
     );
     throw parsed.error;
   }
@@ -90,7 +90,7 @@ export const setCustomEdgeLabel = (edge: Edge, value: string) => {
   if (!parsed.success) {
     showError(
       "invalidCustomEdgeLabel",
-      parsed.error.errors[0]?.message ?? "Invalid custom edge label",
+      parsed.error.errors[0]?.message ?? "Недопустимая пользовательская метка ребра",
     );
     throw parsed.error;
   }

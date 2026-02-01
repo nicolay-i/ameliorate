@@ -15,7 +15,7 @@ export const Logo = ({ className, titleClassName }: Props) => {
       <Link href="/" className="flex items-center gap-2" underline="none">
         {/* use styling to set width and height instead of Image props because otherwise this throws a warning about only having height or width set */}
         {/* no idea why specifically this favicon throws this warning, and other Image-links in Header don't. */}
-        <Image src={favicon} alt="home" className="size-8" />
+        <Image src={favicon} alt="главная" className="size-8" />
         <span
           className={
             "text-xl font-medium text-black" + (titleClassName ? ` ${titleClassName}` : "")

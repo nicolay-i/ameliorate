@@ -62,22 +62,22 @@ export const HelpMenu = ({ helpAnchorEl, setHelpAnchorEl }: Props) => {
       onClose={() => setHelpAnchorEl(null)}
       openDirection="top"
     >
-      <Divider>Help</Divider>
+      <Divider>Помощь</Divider>
 
       <MenuItem component={Link} href={docsPage} target="_blank">
         <MenuBook />
-        Docs
+        Документация
       </MenuItem>
       <MenuItem component={Link} href="/#examples" target="_blank">
         <AccountBalance />
-        Examples
+        Примеры
       </MenuItem>
       <MenuItem component={Link} href={feedbackPage} target="_blank">
         <Campaign />
-        Give feedback
+        Оставить отзыв
       </MenuItem>
 
-      <Divider>Tutorials</Divider>
+      <Divider>Обучение</Divider>
 
       <TabContext value={selectedTab}>
         <TabList
@@ -85,44 +85,44 @@ export const HelpMenu = ({ helpAnchorEl, setHelpAnchorEl }: Props) => {
           centered
           className="px-2"
         >
-          <Tab icon={<Carpenter />} label="Builders" value="Builders" />
-          <Tab icon={<LocalLibrary />} label="Viewers" value="Viewers" />
-          <Tab icon={<Handyman />} label="Experts" value="Experts" />
+          <Tab icon={<Carpenter />} label="Создатели" value="Builders" />
+          <Tab icon={<LocalLibrary />} label="Просмотр" value="Viewers" />
+          <Tab icon={<Handyman />} label="Эксперты" value="Experts" />
         </TabList>
 
         <TabPanel value="Builders" classes={{ root: "p-2" }}>
           <TutorialMenuItem onClick={() => startTutorial("diagramBasics", "builders")}>
-            {getProgressIcon("diagramBasics")} 1. Diagram basics
+            {getProgressIcon("diagramBasics")} 1. Основы диаграмм
           </TutorialMenuItem>
           <TutorialMenuItem onClick={() => startTutorial("breakingDownAProblem", "builders")}>
-            {getProgressIcon("breakingDownAProblem")} 2. Breaking down a problem
+            {getProgressIcon("breakingDownAProblem")} 2. Декомпозиция проблемы
           </TutorialMenuItem>
           <TutorialMenuItem onClick={() => startTutorial("addingNuance", "builders")}>
-            {getProgressIcon("addingNuance")} 3. Adding nuance
+            {getProgressIcon("addingNuance")} 3. Добавление нюансов
           </TutorialMenuItem>
           <TutorialMenuItem onClick={() => startTutorial("evaluatingTradeoffs", "builders")}>
-            {getProgressIcon("evaluatingTradeoffs")} 4. Evaluating tradeoffs
+            {getProgressIcon("evaluatingTradeoffs")} 4. Оценка компромиссов
           </TutorialMenuItem>
           <TutorialMenuItem onClick={() => startTutorial("buildingViews", "builders")}>
-            {getProgressIcon("buildingViews")} 5. Building views
+            {getProgressIcon("buildingViews")} 5. Создание видов
           </TutorialMenuItem>
         </TabPanel>
 
         <TabPanel value="Viewers" classes={{ root: "p-2" }}>
           <TutorialMenuItem onClick={() => startTutorial("readingADiagram", "diagramViewers")}>
-            {getProgressIcon("readingADiagram")} 1a. Reading a diagram
+            {getProgressIcon("readingADiagram")} 1a. Чтение диаграммы
           </TutorialMenuItem>
           <TutorialMenuItem onClick={() => startTutorial("evaluatingTradeoffs", "tableViewers")}>
-            {getProgressIcon("evaluatingTradeoffs")} 1b. Evaluating tradeoffs
+            {getProgressIcon("evaluatingTradeoffs")} 1b. Оценка компромиссов
           </TutorialMenuItem>
           <TutorialMenuItem onClick={() => startTutorial("navigatingATopic", "diagramViewers")}>
-            {getProgressIcon("navigatingATopic")} 2. Navigating a topic
+            {getProgressIcon("navigatingATopic")} 2. Навигация по теме
           </TutorialMenuItem>
         </TabPanel>
 
         <TabPanel value="Experts" classes={{ root: "p-2" }}>
-          <TutorialMenuItem disabled>More actions (coming later)</TutorialMenuItem>
-          <TutorialMenuItem disabled>Advanced filtering (coming later)</TutorialMenuItem>
+          <TutorialMenuItem disabled>Дополнительные действия (позже)</TutorialMenuItem>
+          <TutorialMenuItem disabled>Расширенные фильтры (позже)</TutorialMenuItem>
         </TabPanel>
       </TabContext>
     </Menu>

@@ -34,11 +34,11 @@ export const OutgoingColumn = ({ summaryNode }: Props) => {
 
   return (
     <div className="flex flex-col">
-      <Row title="Outgoing" Icon={NorthEast} addButtonsSlot={AddButtons} />
+      <Row title="Исходящие" Icon={NorthEast} addButtonsSlot={AddButtons} />
 
       {Object.keys(outgoingByDescription).length === 0 && (
         <Typography variant="body2" className="self-center">
-          No nodes yet!
+          Пока нет узлов!
         </Typography>
       )}
 

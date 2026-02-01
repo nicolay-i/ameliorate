@@ -42,8 +42,8 @@ export const ViewToolbar = ({ overlay, position }: Props) => {
         {format === "diagram" && (
           <IconButton
             color="primary"
-            title="View summary"
-            aria-label="View summary"
+            title="Показать сводку"
+            aria-label="Показать сводку"
             onClick={() => setFormat("summary")}
             className="p-1"
           >
@@ -53,8 +53,8 @@ export const ViewToolbar = ({ overlay, position }: Props) => {
         {(format === "table" || format == "summary") && (
           <IconButton
             color="primary"
-            title="View diagram"
-            aria-label="View diagram"
+            title="Показать диаграмму"
+            aria-label="Показать диаграмму"
             onClick={() => setFormat("diagram")}
             className="p-1"
           >
@@ -64,7 +64,7 @@ export const ViewToolbar = ({ overlay, position }: Props) => {
 
         <QuickViewSelect />
 
-        <Tooltip tooltipHeading="Open View Settings">
+        <Tooltip tooltipHeading="Открыть настройки вида">
           <IconButton size="small" onClick={() => emitter.emit("seeViewSettings")}>
             <Settings fontSize="inherit" className="text-gray-400" />
           </IconButton>

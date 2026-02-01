@@ -10,5 +10,5 @@ export const DeleteNodeMenuItem = ({ node }: { node: Node }) => {
 
   if (!userCanEditTopicData) return <></>;
 
-  return <ContextMenuItem onClick={() => deleteNode(node.id)}>Delete node</ContextMenuItem>;
+  return <ContextMenuItem onClick={() => deleteNode(node.id)}>Удалить узел</ContextMenuItem>;
 };

@@ -17,11 +17,11 @@ export const FactDetails = ({ factNode }: Props) => {
   return (
     <>
       <div className="mt-2 flex flex-col items-center gap-0.5">
-        <Typography variant="body1">Relevant For</Typography>
+        <Typography variant="body1">Относится к</Typography>
 
         <NodeList>
           {nodesRelevantFor.length === 0 && edgesRelevantFor.length === 0 && (
-            <Typography variant="body2">No relevant parts yet!</Typography>
+            <Typography variant="body2">Пока нет связанных частей!</Typography>
           )}
           {nodesRelevantFor.length > 0 &&
             nodesRelevantFor.map((node) => <EditableNode key={node.id} node={node} />)}
@@ -31,7 +31,7 @@ export const FactDetails = ({ factNode }: Props) => {
       </div>
 
       <div className="mt-4 flex flex-col items-center gap-0.5">
-        <Typography variant="body1">Sources</Typography>
+        <Typography variant="body1">Источники</Typography>
 
         <Stack direction="row" justifyContent="center" alignItems="center" marginBottom="8px">
           <AddNodeButton
@@ -50,7 +50,7 @@ export const FactDetails = ({ factNode }: Props) => {
           {sources.length > 0 ? (
             sources.map((source) => <EditableNode key={source.id} node={source} />)
           ) : (
-            <Typography variant="body2">No sources yet!</Typography>
+            <Typography variant="body2">Пока нет источников!</Typography>
           )}
         </NodeList>
       </div>

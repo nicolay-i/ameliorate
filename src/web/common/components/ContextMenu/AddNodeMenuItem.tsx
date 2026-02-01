@@ -26,7 +26,7 @@ export const AddNodeMenuItem = ({ parentMenuOpen }: Props) => {
 
   return (
     <>
-      <NestedMenuItem label="Add node" parentMenuOpen={parentMenuOpen}>
+      <NestedMenuItem label="Добавить узел" parentMenuOpen={parentMenuOpen}>
         {shownNodeTypes.map((type) => {
           const title = prettyNodeTypes[type];
           return (

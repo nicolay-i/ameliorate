@@ -17,14 +17,14 @@ const onFontResize = (textAreaId: string) => {
     "nodeTextSizeReduced",
     <>
       <span>
-        Long node text can make your diagram harder to read.
+        Длинный текст узла усложняет чтение диаграммы.
         <br />
         <br />
-        Consider:
+        Попробуйте:
       </span>
       <ul className="list-inside list-disc!">
-        <li>using a sentence fragment of just one concept, like 'Problem: cars going too fast'</li>
-        <li>using a title for the node and putting an explanation in the node's notes</li>
+        <li>использовать короткий фрагмент с одной идеей, например «Проблема: машины едут слишком быстро»</li>
+        <li>дать узлу заголовок, а пояснение добавить в заметки</li>
       </ul>
     </>,
     `#${CSS.escape(textAreaId)}`, // `escape` because the id can start with a number, which CSS selectors aren't supposed to https://developer.mozilla.org/en-US/docs/Web/API/CSS/escape_static#in_context_uses
@@ -149,7 +149,7 @@ const NodeTextAreaBase = ({ nodeId, nodeText, context, editable }: Props) => {
     <StyledTextareaAutosize
       id={textAreaId}
       ref={textAreaRef}
-      placeholder="Enter text..."
+      placeholder="Введите текст..."
       defaultValue={nodeText}
       maxRows={3}
       onClick={(event) => {

@@ -77,7 +77,7 @@ const BasicsSection = ({ topic }: { topic: StoreTopic }) => {
     >
       <TextField
         {...register("description")}
-        label="Description"
+        label="Описание"
         error={!!errors.description}
         helperText={errors.description?.message}
         multiline
@@ -127,6 +127,8 @@ export const TopicDetails = ({ selectedTab, setSelectedTab }: Props) => {
   const indicateBasics = topic.description.length > 0;
   const indicateComments = commentCount > 0;
 
+  const tabLabel = (tab: DetailsTab) => (tab === "Basics" ? "Основное" : "Комментарии");
+
   const willShowWatch = !isPlaygroundTopic && !!sessionUser;
   const findWatch = trpc.watch.find.useQuery(
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- non-playground topics will have an id
@@ -138,6 +140,19 @@ export const TopicDetails = ({ selectedTab, setSelectedTab }: Props) => {
   });
   const showWatch = willShowWatch && findWatch.isSuccess;
 
+  const watchLabel = (type: WatchType) => {
+    switch (type) {
+      case "participatingOrMentions":
+        return "Участие или упоминания";
+      case "all":
+        return "Все";
+      case "ignore":
+        return "Игнорировать";
+      default:
+        return startCase(type);
+    }
+  };
+
   return (
     // min-h-0 to ensure content can shrink within parent flex container, allowing inner containers to control scrolling https://stackoverflow.com/a/66689926/8409296
     // grow so that it can take up the full pane's space and not overflow if a node is at the bottom and has an indicator overhanging
@@ -146,7 +161,7 @@ export const TopicDetails = ({ selectedTab, setSelectedTab }: Props) => {
       {/* hardcode shadow to be 1px lower than default tailwind shadow so that no shadow appears above the container */}
       <div className="flex items-center justify-center border-b px-4 pb-1 text-wrap wrap-break-word shadow-[0_2px_3px_0_rgba(0,0,0,0.1)]">
         {isPlaygroundTopic ? (
-          "Playground Topic"
+          "Тема песочницы"
         ) : (
           <>
             <Link className="max-w-[40%]" href={`/${topic.creatorName}`}>
@@ -161,7 +176,7 @@ export const TopicDetails = ({ selectedTab, setSelectedTab }: Props) => {
 
         {!isPlaygroundTopic && sessionUser && userIsCreator && (
           <>
-            <Tooltip tooltipHeading="Open Topic Settings">
+            <Tooltip tooltipHeading="Открыть настройки темы">
               <IconButton size="small" onClick={() => setTopicFormOpen(true)}>
                 <Settings fontSize="inherit" />
               </IconButton>
@@ -169,7 +184,7 @@ export const TopicDetails = ({ selectedTab, setSelectedTab }: Props) => {
             <Dialog
               open={topicFormOpen}
               onClose={() => setTopicFormOpen(false)}
-              aria-label="Topic Settings"
+              aria-label="Настройки темы"
             >
               <EditTopicForm topic={topic} creatorName={sessionUser.username} />
             </Dialog>
@@ -183,7 +198,7 @@ export const TopicDetails = ({ selectedTab, setSelectedTab }: Props) => {
             <div className="flex items-center gap-2 border-b p-2 pt-3">
               <TextField
                 select
-                label="Watch"
+                label="Отслеживание"
                 value={findWatch.data?.type ?? "participatingOrMentions"}
                 fullWidth
                 size="small"
@@ -193,29 +208,29 @@ export const TopicDetails = ({ selectedTab, setSelectedTab }: Props) => {
               >
                 {watchTypes.map((type) => (
                   <MenuItem key={type} value={type}>
-                    {startCase(type)}
+                    {watchLabel(type)}
                   </MenuItem>
                 ))}
               </TextField>
               <IconWithTooltip
-                tooltipHeading="Notifications: Watches and Subscriptions"
+                tooltipHeading="Уведомления: отслеживание и подписки"
                 tooltipBody={
                   <span>
-                    You will receive notifications if you're subscribed to a thread.
+                    Вы будете получать уведомления, если подписаны на ветку.
                     <br />
                     <br />
-                    Your watch determines in which cases you automatically become subscribed to a
-                    thread.
+                    Отслеживание определяет, в каких случаях вы автоматически подписываетесь на
+                    ветку.
                     <br />
                     <br />
-                    "participatingOrMentions" will subscribe you when you participate (comment) in a
-                    thread (the "mentions" half is not implemented yet).
+                    "participatingOrMentions" подписывает вас при участии (комментарии) в ветке
+                    (часть про "mentions" пока не реализована).
                     <br />
                     <br />
-                    "all" will subscribe you to all new threads.
+                    "all" подписывает на все новые ветки.
                     <br />
                     <br />
-                    "ignore" will not subscribe you to any new threads.
+                    "ignore" не подписывает ни на какие новые ветки.
                   </span>
                 }
                 icon={<HelpIcon />}
@@ -231,21 +246,21 @@ export const TopicDetails = ({ selectedTab, setSelectedTab }: Props) => {
                 <Tab
                   icon={indicateBasics ? <Article /> : <ArticleOutlined />}
                   value="Basics"
-                  title="Basics"
-                  aria-label="Basics"
+                  title={tabLabel("Basics")}
+                  aria-label={tabLabel("Basics")}
                 />
                 <Tab
                   icon={indicateComments ? <ChatBubble /> : <ChatBubbleOutline />}
                   value="Comments"
-                  title="Comments"
-                  aria-label="Comments"
+                  title={tabLabel("Comments")}
+                  aria-label={tabLabel("Comments")}
                 />
               </TabList>
 
               <TabPanel value="Basics">
                 <section className="flex flex-col items-center p-2">
                   <Typography variant="h6" component="h2" className="mb-2">
-                    Basics
+                    Основное
                   </Typography>
                   <BasicsSection topic={topic} />
                 </section>
@@ -253,7 +268,7 @@ export const TopicDetails = ({ selectedTab, setSelectedTab }: Props) => {
               <TabPanel value="Comments">
                 <section className="flex flex-col items-center p-2">
                   <Typography variant="h6" component="h2" className="mb-2">
-                    Comments
+                    Комментарии
                   </Typography>
                   <CommentSection parentId={null} parentType="topic" />
                 </section>
@@ -264,14 +279,14 @@ export const TopicDetails = ({ selectedTab, setSelectedTab }: Props) => {
           <>
             <section className="flex flex-col items-center border-b p-2">
               <Typography variant="h6" component="h2" className="mb-2 flex items-center gap-2.5">
-                <Article /> Basics
+                <Article /> Основное
               </Typography>
               <BasicsSection topic={topic} />
             </section>
 
             <section className="flex flex-col items-center p-2">
               <Typography variant="h6" component="h2" className="mb-2 flex items-center gap-2.5">
-                <ChatBubble /> Comments
+                <ChatBubble /> Комментарии
               </Typography>
               <CommentSection parentId={null} parentType="topic" />
             </section>

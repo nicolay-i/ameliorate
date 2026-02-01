@@ -3,8 +3,8 @@ import { IconWithTooltip } from "@/web/common/components/Tooltip/IconWithTooltip
 
 export const IndirectHelpIcon = () => (
   <IconWithTooltip
-    tooltipHeading="Indirect Nodes"
-    tooltipBody="Indirect nodes are connected to the summarized node through other nodes. For example, when viewing a solution, a benefit created by one of the solution's components will show here."
+    tooltipHeading="Косвенные узлы"
+    tooltipBody="Косвенные узлы связаны с суммарным узлом через другие узлы. Например, при просмотре решения здесь появится выгода, созданная одним из компонентов решения."
     icon={<HelpIcon />}
   />
 );

@@ -31,7 +31,7 @@ export const SiteDrawer = ({ username, isSiteDrawerOpen, setIsSiteDrawerOpen }: 
       <List>
         <ListItem
           secondaryAction={
-            <IconButton edge="end" aria-label="close" onClick={() => setIsSiteDrawerOpen(false)}>
+            <IconButton edge="end" aria-label="закрыть" onClick={() => setIsSiteDrawerOpen(false)}>
               <Close />
             </IconButton>
           }
@@ -40,7 +40,7 @@ export const SiteDrawer = ({ username, isSiteDrawerOpen, setIsSiteDrawerOpen }: 
             <ListItemIcon>
               {/* use styling to set width and height instead of Image props because otherwise this throws a warning about only having height or width set */}
               {/* no idea why specifically this favicon throws this warning, and other Image-links in Header don't. */}
-              <Image src={favicon} alt="home" className="size-8" />
+              <Image src={favicon} alt="главная" className="size-8" />
             </ListItemIcon>
             <ListItemText primary="Ameliorate" />
           </ListItemButton>
@@ -53,7 +53,7 @@ export const SiteDrawer = ({ username, isSiteDrawerOpen, setIsSiteDrawerOpen }: 
             <ListItemIcon>
               <Fort />
             </ListItemIcon>
-            <ListItemText primary="Playground" />
+            <ListItemText primary="Песочница" />
           </ListItemButton>
         </ListItem>
         {username && (
@@ -62,7 +62,7 @@ export const SiteDrawer = ({ username, isSiteDrawerOpen, setIsSiteDrawerOpen }: 
               <ListItemIcon>
                 <AutoStories />
               </ListItemIcon>
-              <ListItemText primary="My Topics" />
+              <ListItemText primary="Мои темы" />
             </ListItemButton>
           </ListItem>
         )}
@@ -72,7 +72,7 @@ export const SiteDrawer = ({ username, isSiteDrawerOpen, setIsSiteDrawerOpen }: 
             <ListItemIcon>
               <Add />
             </ListItemIcon>
-            <ListItemText primary="New Topic" />
+            <ListItemText primary="Новая тема" />
           </ListItemButton>
         </ListItem>
 
@@ -87,7 +87,7 @@ export const SiteDrawer = ({ username, isSiteDrawerOpen, setIsSiteDrawerOpen }: 
             <ListItemIcon>
               <MenuBook />
             </ListItemIcon>
-            <ListItemText primary="Docs" />
+            <ListItemText primary="Документация" />
           </ListItemButton>
         </ListItem>
 
@@ -96,7 +96,7 @@ export const SiteDrawer = ({ username, isSiteDrawerOpen, setIsSiteDrawerOpen }: 
             <ListItemIcon>
               <Campaign />
             </ListItemIcon>
-            <ListItemText primary="Feedback" />
+            <ListItemText primary="Обратная связь" />
           </ListItemButton>
         </ListItem>
 
@@ -107,7 +107,7 @@ export const SiteDrawer = ({ username, isSiteDrawerOpen, setIsSiteDrawerOpen }: 
                 src={`/${theme.palette.mode}/Discord-Mark.png`}
                 height={24}
                 width={32}
-                alt="discord link"
+                alt="ссылка на Discord"
               />
             </Link>
             <Link href={githubRepo} target="_blank" display="flex">
@@ -115,7 +115,7 @@ export const SiteDrawer = ({ username, isSiteDrawerOpen, setIsSiteDrawerOpen }: 
                 src={`/${theme.palette.mode}/GitHub-Mark.png`}
                 height={32}
                 width={32}
-                alt="github link"
+                alt="ссылка на GitHub"
               />
             </Link>
           </div>

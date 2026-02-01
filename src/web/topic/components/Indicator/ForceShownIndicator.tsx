@@ -23,7 +23,7 @@ const ForceShownIndicatorBase = ({ nodeId, bgColor }: Props) => {
   return (
     <Indicator
       Icon={WbTwilight}
-      title={"Stop forcing node to show"}
+      title={"Перестать принудительно показывать узел"}
       onClick={onClick}
       bgColor={bgColor}
     />

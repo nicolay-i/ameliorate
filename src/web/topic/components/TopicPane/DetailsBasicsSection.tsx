@@ -59,7 +59,7 @@ export const DetailsBasicsSection = ({ graphPart }: Props) => {
     >
       <TextField
         {...register("notes")}
-        label="Notes"
+        label="Заметки"
         error={!!errors.notes}
         helperText={errors.notes?.message}
         multiline

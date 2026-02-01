@@ -38,13 +38,13 @@ export const ProfileButton = () => {
                 : `/api/auth/login?returnTo=${encodeURIComponent(asPath)}`
           }
         >
-          {isAuthed ? "Username" : "Log in"}
+          {isAuthed ? "Имя пользователя" : "Войти"}
         </NavLink>
       )}
 
       {isLoggedIn && (
         <>
-          <Tooltip title="My Profile">
+          <Tooltip title="Профиль">
             <IconButton onClick={() => setIsUserDrawerOpen(true)} className="size-8 p-0">
               <ProfileIcon username={sessionUser.username} />
             </IconButton>

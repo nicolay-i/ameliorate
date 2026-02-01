@@ -18,19 +18,19 @@ export default function Page({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   // Seems ok if we say it's expired even if the code was never valid
   const unsubscribeText = unsubscribed
-    ? "You have been successfully unsubscribed"
-    : "Unsubscribe link has expired";
+    ? "Вы успешно отписались"
+    : "Ссылка для отписки устарела";
 
   return (
     <>
       <Head>
-        <title>Unsubscribe | Ameliorate</title>
-        <meta name="description" content="Unsubscribe from Ameliorate notifications." />
+        <title>Отписка | Ameliorate</title>
+        <meta name="description" content="Отписка от уведомлений Ameliorate." />
       </Head>
 
       <Typography variant="h5" textAlign="center" sx={{ margin: 2 }}>
-        {unsubscribeText}. Go to your <Link href="/notifications">notifications page</Link> to
-        manage your notifications.
+        {unsubscribeText}. Перейдите на страницу{" "}
+        <Link href="/notifications">уведомлений</Link>, чтобы управлять ими.
       </Typography>
     </>
   );

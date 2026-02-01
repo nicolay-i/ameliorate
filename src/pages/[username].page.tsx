@@ -50,7 +50,7 @@ const User: NextPage = () => {
   const columnData: MRT_ColumnDef<RowData>[] = [
     {
       accessorKey: "title",
-      header: "Topic",
+      header: "Тема",
       Cell: ({ row }) => (
         <Link href={`/${foundUser.username}/${row.original.title}`}>{row.original.title}</Link>
       ),
@@ -59,7 +59,7 @@ const User: NextPage = () => {
     },
     {
       accessorKey: "description",
-      header: "Description",
+      header: "Описание",
       Cell: ({ row }) => (
         <Box
           title={row.original.description}
@@ -75,12 +75,12 @@ const User: NextPage = () => {
     },
     {
       accessorKey: "visibility",
-      header: "Visibility",
+      header: "Видимость",
       grow: false,
     },
     {
       accessorKey: "createdAt",
-      header: "Created",
+      header: "Создано",
       Cell: ({ row }) => (
         <span title={row.original.createdAt.toLocaleString()}>
           {row.original.createdAt.toLocaleDateString()}
@@ -90,7 +90,7 @@ const User: NextPage = () => {
     },
     {
       accessorKey: "updatedAt",
-      header: "Updated",
+      header: "Обновлено",
       Cell: ({ row }) => (
         <span title={row.original.updatedAt.toLocaleString()}>
           {row.original.updatedAt.toLocaleDateString()}
@@ -108,7 +108,7 @@ const User: NextPage = () => {
     <>
       <Head>
         <title>{username} | Ameliorate</title>
-        <meta name="description" content={`${username} - view your topics.`} />
+        <meta name="description" content={`${username} — просмотр ваших тем.`} />
       </Head>
 
       <MaterialReactTable
@@ -119,8 +119,8 @@ const User: NextPage = () => {
         renderRowActions={({ row }) => (
           <>
             <IconButton
-              title="Settings"
-              aria-label="Settings"
+              title="Настройки"
+              aria-label="Настройки"
               onClick={() => setEditingTopicId(row.original.id)}
             >
               <Settings fontSize="inherit" />
@@ -128,7 +128,7 @@ const User: NextPage = () => {
             <Dialog
               open={editingTopicId === row.original.id}
               onClose={() => setEditingTopicId(null)}
-              aria-label="Topic Settings"
+              aria-label="Настройки темы"
             >
               <EditTopicForm topic={row.original} creatorName={foundUser.username} />
             </Dialog>
@@ -144,12 +144,12 @@ const User: NextPage = () => {
               {hasEditAccess && (
                 <>
                   <Button variant="contained" onClick={() => setCreatingTopic(true)}>
-                    New Topic
+                    Новая тема
                   </Button>
                   <Dialog
                     open={creatingTopic}
                     onClose={() => setCreatingTopic(false)}
-                    aria-label="New Topic"
+                    aria-label="Новая тема"
                   >
                     <CreateTopicForm creatorName={foundUser.username} />
                   </Dialog>

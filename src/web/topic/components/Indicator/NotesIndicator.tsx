@@ -21,5 +21,7 @@ export const NotesIndicator = ({ graphPartId, notes, bgColor }: Props) => {
 
   if (!hasNotes) return <></>;
 
-  return <ContentIndicator Icon={Notes} title={"View notes"} onClick={onClick} bgColor={bgColor} />;
+  return (
+    <ContentIndicator Icon={Notes} title={"Показать заметки"} onClick={onClick} bgColor={bgColor} />
+  );
 };

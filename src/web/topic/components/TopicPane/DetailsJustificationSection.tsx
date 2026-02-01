@@ -27,7 +27,7 @@ export const DetailsJustificationSection = ({ graphPart }: Props) => {
       {/* Ideally it'd probably be significantly cleaner to just remove the mb-2 on the heading, and/or */}
       {/* to move this subheading to be next to the heading, but didn't want to deal with refactoring right now. */}
       <Typography className="-mt-2 mb-2 px-2 pb-1 text-center text-sm text-slate-500">
-        Claim: <ImpliedClaimText graphPart={graphPart} />
+        Утверждение: <ImpliedClaimText graphPart={graphPart} />
       </Typography>
 
       {/* spacing is the amount that centers the add buttons above the columns */}
@@ -74,7 +74,7 @@ export const DetailsJustificationSection = ({ graphPart }: Props) => {
           {supports.length > 0 ? (
             supports.map((support) => <EditableNode key={support.id} node={support} />)
           ) : (
-            <Typography variant="body2">No supports yet!</Typography>
+            <Typography variant="body2">Пока нет поддержек!</Typography>
           )}
         </div>
 
@@ -82,7 +82,7 @@ export const DetailsJustificationSection = ({ graphPart }: Props) => {
           {critiques.length > 0 ? (
             critiques.map((critique) => <EditableNode key={critique.id} node={critique} />)
           ) : (
-            <Typography variant="body2">No critiques yet!</Typography>
+            <Typography variant="body2">Пока нет критики!</Typography>
           )}
         </div>
       </Box>

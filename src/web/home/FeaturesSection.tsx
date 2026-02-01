@@ -7,13 +7,13 @@ type Tab = "views" | "disagree" | "tradeoffs" | "flashlight";
 
 const copy = {
   views: {
-    title: "Focus on different aspects",
-    description: "Create views to highlight specific parts of the diagram.",
+    title: "Фокус на разных аспектах",
+    description: "Создавайте виды, чтобы выделить нужные части диаграммы.",
     content: (
       <div>
         <Image
           src="https://github.com/user-attachments/assets/87055acd-debb-45f2-981f-ef511e770222"
-          alt="clicking between views in cars-going-too-fast topic"
+          alt="переключение между видами в теме cars-going-too-fast"
           width={1096}
           height={847}
           unoptimized // warning without this - gifs aren't optimized by nextjs apparently
@@ -21,7 +21,7 @@ const copy = {
           className="rounded-xl border bg-paperPlain-main p-2 shadow-sm"
         />
         <Typography variant="caption">
-          Topic:{" "}
+          Тема:{" "}
           <Link href="https://ameliorate.app/examples/detailed-cars-going-too-fast" target="_blank">
             cars-going-too-fast
           </Link>
@@ -30,21 +30,20 @@ const copy = {
     ),
   },
   disagree: {
-    title: "Quickly identify where you disagree",
-    description:
-      "Compare scores to efficiently understand where your opinions lie in relation to others.",
+    title: "Быстро находите разногласия",
+    description: "Сравнивайте оценки, чтобы понять, где ваши мнения расходятся.",
     content: (
       <div>
         <Image
           src="https://github.com/user-attachments/assets/c1c9043a-4a0f-4af6-a309-ab3574301054"
-          alt="comparing scores in cars-going-too-fast topic"
+          alt="сравнение оценок в теме cars-going-too-fast"
           width={756}
           height={703}
           unoptimized // warning without this - gifs aren't optimized by nextjs apparently
           className="rounded-xl border shadow-sm"
         />
         <Typography variant="caption">
-          Topic:{" "}
+          Тема:{" "}
           <Link href="https://ameliorate.app/examples/detailed-cars-going-too-fast" target="_blank">
             cars-going-too-fast
           </Link>
@@ -53,14 +52,14 @@ const copy = {
     ),
   },
   tradeoffs: {
-    title: "Summarize tradeoffs between solutions",
+    title: "Сводите компромиссы между решениями",
     description:
-      "Show how important you think each tradeoff is, and how well each solution fulfills that tradeoff.",
+      "Покажите, насколько важен каждый компромисс и насколько хорошо каждое решение ему соответствует.",
     content: (
       <div>
         <Image
           src="https://github.com/user-attachments/assets/60ac157d-03f7-4fa5-907b-b8e3abab0e7a"
-          alt="criteria tables of cars-going-too-fast"
+          alt="таблицы критериев для cars-going-too-fast"
           width={727}
           height={455}
           unoptimized
@@ -68,7 +67,7 @@ const copy = {
           className="rounded-xl border bg-paperPlain-main p-3 shadow-sm"
         />
         <Typography variant="caption">
-          Topic:{" "}
+          Тема:{" "}
           <Link
             href="https://ameliorate.app/examples/detailed-cars-going-too-fast?view=Tradeoff+table"
             target="_blank"
@@ -80,20 +79,20 @@ const copy = {
     ),
   },
   flashlight: {
-    title: "Move through complex diagrams",
-    description: "Use flashlight mode to easily explore large diagrams.",
+    title: "Осматривайте сложные диаграммы",
+    description: "Используйте режим фонарика, чтобы легко исследовать большие диаграммы.",
     content: (
       <div>
         <Image
           src="https://github.com/user-attachments/assets/98d75b2b-6ca4-41cd-9322-314c75126232"
-          alt="using flashlight mode in brutality-sugar topic"
+          alt="режим фонарика в теме brutality-sugar"
           width={1022}
           height={728}
           unoptimized // warning without this - gifs aren't optimized by nextjs apparently
           className="rounded-xl border shadow-sm"
         />
         <Typography variant="caption">
-          Topic:{" "}
+          Тема:{" "}
           <Link href="https://ameliorate.app/keyserj/brutality-sugar-article" target="_blank">
             brutality-sugar-article
           </Link>
@@ -108,7 +107,7 @@ export const FeaturesSection = () => {
 
   return (
     <div className="flex flex-col text-center">
-      <Typography variant="h4">Some cool features</Typography>
+      <Typography variant="h4">Основные возможности</Typography>
 
       <TabContext value={selectedCard}>
         <TabList onChange={(_, value: Tab) => setSelectedCard(value)} variant="fullWidth">

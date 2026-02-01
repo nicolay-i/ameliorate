@@ -10,22 +10,22 @@ import { Track } from "@/web/tutorial/tutorialUtils";
 export const welcomeSteps = (track: Track): StepType[] => {
   return [
     {
-      selector: 'button[title="Help"] > svg',
+      selector: 'button[title="Помощь"] > svg',
       content: (
         <StepContent
-          stepTitle="Welcome to Ameliorate 🔥"
+          stepTitle="Добро пожаловать в Ameliorate 🔥"
           text={
             <>
-              If you're ever unsure how to do something, click this question mark.
+              Если не уверены, как что-то сделать, нажмите на этот знак вопроса.
               <br />
               <br />
-              You can start tutorials and track your progress here, and it has links to docs and
-              examples.
+              Здесь можно запускать обучение и отслеживать прогресс, а также есть ссылки на
+              документацию и примеры.
               <br />
               <br />
-              Feel free to also ask for help in the{" "}
+              Также можно попросить помощи в{" "}
               <Link href={discordInvite} target="_blank">
-                Discord server
+                Discord-сервере
               </Link>
               .
             </>
@@ -36,21 +36,21 @@ export const welcomeSteps = (track: Track): StepType[] => {
                 variant="contained"
                 onClick={() => startTutorial("diagramBasics", "builders")}
               >
-                Start: Diagram Basics
+                Начать: Основы диаграмм
               </Button>
             ) : track === "diagramViewers" ? (
               <Button
                 variant="contained"
                 onClick={() => startTutorial("readingADiagram", "diagramViewers")}
               >
-                Start: Reading Diagrams
+                Начать: Чтение диаграмм
               </Button>
             ) : (
               <Button
                 variant="contained"
                 onClick={() => startTutorial("evaluatingTradeoffs", "tableViewers")}
               >
-                Start: Evaluating Tradeoffs
+                Начать: Оценка компромиссов
               </Button>
             )
           }

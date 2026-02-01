@@ -1,6 +1,4 @@
 import { Stack, Tooltip } from "@mui/material";
-import { startCase } from "es-toolkit";
-
 import { InfoCategory } from "@/common/infoCategory";
 
 interface Props {
@@ -8,29 +6,34 @@ interface Props {
 }
 
 export const ShowSecondaryNeighborsLabel = ({ secondaryInfoCategory }: Props) => {
+  const categoryLabel: Record<InfoCategory, string> = {
+    breakdown: "декомпозиции",
+    research: "исследования",
+    justification: "обоснования",
+  };
+
   return (
     <Stack direction="row" alignItems="center">
-      Show
+      Показывать
       <Tooltip
         title={
           <span>
-            Secondary nodes are those of an information category not being displayed, but that
-            neighbor nodes that are of an information category being displayed.
+            Вторичные узлы относятся к категории информации, которая сейчас не отображается, но они
+            соседствуют с узлами отображаемой категории.
             <br />
             <br />
-            For example, question and fact nodes are secondary if Research nodes are not being
-            displayed, but they're relevant for a problem node (and Breakdown nodes are being
-            displayed).
+            Например, вопросы и факты являются вторичными, если узлы "Исследования" не показаны, но
+            они связаны с узлом проблемы (и при этом отображается "Декомпозиция").
           </span>
         }
         enterTouchDelay={0} // allow touch to immediately trigger
         leaveTouchDelay={Infinity} // touch-away to close on mobile, since message is long
       >
         <span style={{ textDecoration: "underline", marginLeft: "4px", marginRight: "4px" }}>
-          Secondary
+          вторичные
         </span>
       </Tooltip>
-      {startCase(secondaryInfoCategory)}
+      {categoryLabel[secondaryInfoCategory]}
     </Stack>
   );
 };

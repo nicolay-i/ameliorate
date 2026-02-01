@@ -28,8 +28,8 @@ const DetailsToolbar = () => {
     <div className="flex items-center justify-center">
       <IconButton
         color="inherit"
-        title="Previous Selection"
-        aria-label="Previous Selection"
+        title="Предыдущее выделение"
+        aria-label="Предыдущее выделение"
         onClick={goBack}
         disabled={!canGoBack}
       >
@@ -37,8 +37,8 @@ const DetailsToolbar = () => {
       </IconButton>
       <IconButton
         color="inherit"
-        title="Next Selection"
-        aria-label="Next Selection"
+        title="Следующее выделение"
+        aria-label="Следующее выделение"
         onClick={goForward}
         disabled={!canGoForward}
       >
@@ -164,11 +164,13 @@ const TopicPaneBase = ({ anchor, tabs }: Props) => {
     setSelectedTab(value);
   };
 
+  const tabLabel = (tab: TopicTab) => (tab === "Details" ? "Детали" : "Виды");
+
   const paneContent = (
     <TabContext value={selectedTab}>
       <TabList onChange={handleTabChange} centered>
         {tabs.map((tab) => (
-          <Tab key={tab} label={tab} value={tab} />
+          <Tab key={tab} label={tabLabel(tab)} value={tab} />
         ))}
       </TabList>
 
@@ -236,8 +238,8 @@ const TopicPaneBase = ({ anchor, tabs }: Props) => {
     >
       <IconButton
         color={isOpen ? undefined : "primary"} // stand out if pane is closed so it's easy to find, but if pane is open, the X doesn't really need to stand out
-        title={isOpen ? "Close Topic Pane" : "View Topic Pane"}
-        aria-label={isOpen ? "Close Topic Pane" : "View Topic Pane"}
+        title={isOpen ? "Закрыть панель темы" : "Открыть панель темы"}
+        aria-label={isOpen ? "Закрыть панель темы" : "Открыть панель темы"}
         onClick={handlePaneToggle}
         className={
           "absolute z-10" +

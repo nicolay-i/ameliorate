@@ -36,7 +36,7 @@ export const MotivationColumn = ({ summaryNode }: Props) => {
   return (
     <div className="flex flex-col">
       <Row
-        title="Motivation"
+        title="Мотивация"
         Icon={nodeDecorations.benefit.NodeIcon}
         addButtonsSlot={AddButtons}
         nodes={directNodes}
@@ -45,7 +45,7 @@ export const MotivationColumn = ({ summaryNode }: Props) => {
       <Divider className="mx-2 my-1" />
 
       <Row
-        title="Indirect"
+        title="Косвенно"
         Icon={Timeline}
         endHeaderSlot={<IndirectHelpIcon />}
         nodes={indirectNodes}

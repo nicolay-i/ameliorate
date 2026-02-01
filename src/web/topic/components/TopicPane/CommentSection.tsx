@@ -42,7 +42,7 @@ export const CommentSection = ({ parentId, parentType }: Props) => {
               e.preventDefault(); // without this, page refreshes - not sure why, since component is a button, not an anchor
             }}
           >
-            {showResolved ? "Hide resolved" : "Show resolved"}
+            {showResolved ? "Скрыть решённые" : "Показать решённые"}
           </Link>
         </div>
       )}
@@ -52,7 +52,7 @@ export const CommentSection = ({ parentId, parentType }: Props) => {
           <Thread key={comment.id} myUsername={myUsername} threadStarterComment={comment} />
         ))}
 
-        {threadStarterComments.length === 0 && <p className="text-center">No comments yet!</p>}
+        {threadStarterComments.length === 0 && <p className="text-center">Пока нет комментариев!</p>}
 
         {myUsername && (
           <Draft

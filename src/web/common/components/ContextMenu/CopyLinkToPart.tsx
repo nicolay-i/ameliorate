@@ -16,7 +16,7 @@ export const CopyLinkToPartMenuItem = ({ graphPart }: { graphPart: GraphPart }) 
         void navigator.clipboard.writeText(url);
       }}
     >
-      Copy link to {isNode(graphPart) ? "node" : "edge"}
+      Скопировать ссылку на {isNode(graphPart) ? "узел" : "связь"}
     </ContextMenuItem>
   );
 };

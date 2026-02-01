@@ -31,7 +31,7 @@ export const ContextIndicator = ({ graphPart }: Props) => {
     <ViewIndicator
       Icon={ControlCamera}
       filled={hasContext}
-      title={"View context in diagram"}
+      title={"Показать контекст на диаграмме"}
       onClick={() => partContextMethods.viewContext(graphPart.id)}
     />
   );

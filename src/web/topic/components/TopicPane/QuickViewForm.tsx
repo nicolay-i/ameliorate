@@ -27,7 +27,7 @@ const formSchema = (currentView: QuickView, quickViews: QuickView[]) => {
         if (title === currentView.title) return true;
         return !quickViews.some((view) => view.title === title);
       },
-      (_title) => ({ message: "Title must be unique." }),
+      (_title) => ({ message: "Название должно быть уникальным." }),
     ),
   });
 };
@@ -63,11 +63,11 @@ export const QuickViewForm = ({ currentView, quickViews, onClose }: Props) => {
         },
       }}
     >
-      <DialogTitle>Quick View</DialogTitle>
+      <DialogTitle>Быстрый вид</DialogTitle>
       <DialogContent>
         <TextField
           {...register("title")}
-          label="Title"
+          label="Название"
           error={!!errors.title}
           helperText={errors.title?.message}
           // for some reason, the top of the text field gets cut off without margin
@@ -77,8 +77,8 @@ export const QuickViewForm = ({ currentView, quickViews, onClose }: Props) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Cancel</Button>
-        <Button type="submit">Save</Button>
+        <Button onClick={onClose}>Отмена</Button>
+        <Button type="submit">Сохранить</Button>
       </DialogActions>
     </Dialog>
   );

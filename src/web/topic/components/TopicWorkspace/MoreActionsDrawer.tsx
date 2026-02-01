@@ -172,10 +172,10 @@ const ScreenshotResolutionDialog = ({
         },
       }}
     >
-      <DialogTitle>Set Screenshot Resolution</DialogTitle>
+      <DialogTitle>Задать разрешение снимка</DialogTitle>
       <DialogContent className="flex flex-col">
         <TextField
-          label="Width"
+          label="Ширина"
           type="number"
           margin="dense"
           slotProps={{
@@ -186,7 +186,7 @@ const ScreenshotResolutionDialog = ({
           {...register("width", { valueAsNumber: true })}
         />
         <TextField
-          label="Height"
+          label="Высота"
           type="number"
           margin="dense"
           slotProps={{
@@ -199,10 +199,10 @@ const ScreenshotResolutionDialog = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={() => setScreenshotDialogOpen(false)} color="inherit">
-          Cancel
+          Отмена
         </Button>
         <Button type="submit" variant="contained" color="primary">
-          Download
+          Скачать
         </Button>
       </DialogActions>
     </Dialog>
@@ -252,16 +252,16 @@ export const MoreActionsDrawer = ({
       onClose={() => setResetDialogOpen(false)}
       aria-labelledby="alert-dialog-title"
     >
-      <DialogTitle id="alert-dialog-title">Reset Topic</DialogTitle>
+      <DialogTitle id="alert-dialog-title">Сбросить тему</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          This topic contains comments that will be removed with this action, and undoing will not
-          bring them back. Do you want to proceed with the reset?
+          В этой теме есть комментарии, которые будут удалены, и их нельзя будет восстановить через
+          отмену. Продолжить сброс?
         </DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button color="inherit" onClick={() => setResetDialogOpen(false)}>
-          Cancel
+          Отмена
         </Button>
         <Button
           color="error"
@@ -273,7 +273,7 @@ export const MoreActionsDrawer = ({
             resetQuickViews();
           }}
         >
-          Reset Topic
+          Сбросить тему
         </Button>
       </DialogActions>
     </Dialog>
@@ -291,7 +291,7 @@ export const MoreActionsDrawer = ({
           secondaryAction={
             <IconButton
               edge="end"
-              aria-label="close"
+              aria-label="закрыть"
               onClick={() => setIsMoreActionsDrawerOpen(false)}
             >
               <Close />
@@ -301,16 +301,16 @@ export const MoreActionsDrawer = ({
           <ListItemIcon>
             <Build />
           </ListItemIcon>
-          <ListItemText primary="More Actions" />
+          <ListItemText primary="Другие действия" />
         </ListItem>
 
-        <Divider>Actions</Divider>
+        <Divider>Действия</Divider>
 
         <ListItem disablePadding={false}>
           <IconButton
             color="inherit"
-            title="Download"
-            aria-label="Download"
+            title="Скачать"
+            aria-label="Скачать"
             onClick={downloadTopic}
           >
             <Download />
@@ -318,7 +318,7 @@ export const MoreActionsDrawer = ({
 
           {userCanEditTopicData && (
             <>
-              <IconButton color="inherit" component="label" title="Upload" aria-label="Upload">
+              <IconButton color="inherit" component="label" title="Загрузить" aria-label="Загрузить">
                 <Upload />
                 <input
                   hidden
@@ -329,8 +329,8 @@ export const MoreActionsDrawer = ({
               </IconButton>
               <IconButton
                 color="inherit"
-                title="Reset Topic"
-                aria-label="Reset Topic"
+                title="Сбросить тему"
+                aria-label="Сбросить тему"
                 onClick={() => {
                   if (hasComments()) {
                     setResetDialogOpen(true);
@@ -352,8 +352,8 @@ export const MoreActionsDrawer = ({
 
           <IconButton
             color="inherit"
-            title="Reset Filters"
-            aria-label="Reset Filters"
+            title="Сбросить фильтры"
+            aria-label="Сбросить фильтры"
             onClick={() => resetView(true)}
           >
             <FilterAltOutlined />
@@ -362,7 +362,7 @@ export const MoreActionsDrawer = ({
           {!isTableActive && (
             <IconButton
               color="inherit"
-              title="Download Screenshot of Diagram"
+              title="Скачать снимок диаграммы"
               onClick={() => setScreenshotDialogOpen(true)}
             >
               <PhotoCamera />
@@ -372,15 +372,15 @@ export const MoreActionsDrawer = ({
 
         {!isTableActive && (
           <>
-            <Divider>Action Config</Divider>
+            <Divider>Настройки действий</Divider>
 
             <ListItem disablePadding={false}>
               {userCanEditTopicData && (
                 <>
                   <ToggleButton
                     value={unrestrictedEditing}
-                    title="Unrestrict editing"
-                    aria-label="Unrestrict editing"
+                    title="Снять ограничения редактирования"
+                    aria-label="Снять ограничения редактирования"
                     color="primary"
                     size="small"
                     selected={unrestrictedEditing}
@@ -393,8 +393,8 @@ export const MoreActionsDrawer = ({
               )}
               <ToggleButton
                 value={flashlightMode}
-                title="Flashlight mode"
-                aria-label="Flashlight mode"
+                title="Режим фонарика"
+                aria-label="Режим фонарика"
                 color="primary"
                 size="small"
                 selected={flashlightMode}
@@ -407,8 +407,8 @@ export const MoreActionsDrawer = ({
                 <>
                   <ToggleButton
                     value={readonlyMode}
-                    title={`Read-only mode (${hotkeys.readonlyMode})`}
-                    aria-label={`Read-only mode (${hotkeys.readonlyMode})`}
+                    title={`Режим только чтения (${hotkeys.readonlyMode})`}
+                    aria-label={`Режим только чтения (${hotkeys.readonlyMode})`}
                     color="primary"
                     size="small"
                     selected={readonlyMode}
@@ -425,13 +425,13 @@ export const MoreActionsDrawer = ({
 
         {!isTableActive && (
           <>
-            <Divider>Layout Config</Divider>
+            <Divider>Настройки раскладки</Divider>
 
             <ListItem disablePadding={false}>
               <ToggleButton
                 value={forceNodesIntoLayers}
-                title="Force nodes into layers"
-                aria-label="Force nodes into layers"
+                title="Принудительно раскладывать по слоям"
+                aria-label="Принудительно раскладывать по слоям"
                 color="primary"
                 size="small"
                 selected={forceNodesIntoLayers}
@@ -442,8 +442,8 @@ export const MoreActionsDrawer = ({
               </ToggleButton>
               <ToggleButton
                 value={layerNodeIslandsTogether}
-                title="Layer node islands together"
-                aria-label="Layer node islands together"
+                title="Собирать островки узлов в слои"
+                aria-label="Собирать островки узлов в слои"
                 color="primary"
                 size="small"
                 selected={layerNodeIslandsTogether}
@@ -454,8 +454,8 @@ export const MoreActionsDrawer = ({
               </ToggleButton>
               <ToggleButton
                 value={minimizeEdgeCrossings}
-                title="Minimize edge crossings"
-                aria-label="Minimize edge crossings"
+                title="Минимизировать пересечения связей"
+                aria-label="Минимизировать пересечения связей"
                 color="primary"
                 size="small"
                 selected={minimizeEdgeCrossings}
@@ -466,8 +466,8 @@ export const MoreActionsDrawer = ({
               </ToggleButton>
               <ToggleButton
                 value={avoidEdgeLabelOverlap}
-                title="Avoid edge label overlap"
-                aria-label="Avoid edge label overlap"
+                title="Избегать наложения подписей связей"
+                aria-label="Избегать наложения подписей связей"
                 color="primary"
                 size="small"
                 selected={avoidEdgeLabelOverlap}
@@ -479,15 +479,15 @@ export const MoreActionsDrawer = ({
             </ListItem>
 
             <ListItem disablePadding={false}>
-              <Typography variant="body2">Thoroughness</Typography>
+              <Typography variant="body2">Тщательность</Typography>
               <Tooltip
-                title="Determines how much effort the layout algorithm puts into laying out nodes such that they efficiently use space. Low = minimal effort, High = maximum effort."
+                title="Определяет, сколько усилий алгоритм раскладки тратит на эффективное использование пространства. Низкая = минимум усилий, Высокая = максимум."
                 enterTouchDelay={0} // Trigger immediately on touch
                 leaveTouchDelay={Infinity} // touch-away to close on mobile, since message is long
               >
                 <IconButton
                   color="info"
-                  aria-label="Thoroughness info"
+                  aria-label="Информация о тщательности"
                   sx={{
                     // Don't make it look like clicking will do something, since it won't.
                     // Using a button here is an attempt to make it accessible, since the tooltip will show
@@ -505,19 +505,19 @@ export const MoreActionsDrawer = ({
                 fullWidth // Use fullWidth for proper alignment
                 size="small" // Smaller size for better fit
               >
-                <MenuItem value={1}>Low</MenuItem>
-                <MenuItem value={10}>Medium</MenuItem>
-                <MenuItem value={100}>High</MenuItem>
+                <MenuItem value={1}>Низкая</MenuItem>
+                <MenuItem value={10}>Средняя</MenuItem>
+                <MenuItem value={100}>Высокая</MenuItem>
               </Select>
             </ListItem>
 
-            <Divider>Filter Config</Divider>
+            <Divider>Настройки фильтров</Divider>
 
             <ListItem disablePadding={false}>
               <ToggleButton
                 value={showImpliedEdges}
-                title="Show implied edges"
-                aria-label="Show implied edges"
+                title="Показывать подразумеваемые связи"
+                aria-label="Показывать подразумеваемые связи"
                 color="primary"
                 size="small"
                 selected={showImpliedEdges}
@@ -528,8 +528,8 @@ export const MoreActionsDrawer = ({
               </ToggleButton>
               <ToggleButton
                 value={showProblemCriterionSolutionEdges}
-                title="Show edges between Problems, Criterion, and Solutions"
-                aria-label="Show edges between Problems, Criterion, and Solutions"
+                title="Показывать связи между проблемами, критериями и решениями"
+                aria-label="Показывать связи между проблемами, критериями и решениями"
                 color="primary"
                 size="small"
                 selected={showProblemCriterionSolutionEdges}
@@ -544,13 +544,13 @@ export const MoreActionsDrawer = ({
           </>
         )}
 
-        <Divider>User Config</Divider>
+        <Divider>Пользовательские настройки</Divider>
 
         <ListItem disablePadding={false}>
           <ToggleButton
             value={fillNodesWithColor}
-            title="Fill nodes with color"
-            aria-label="Fill nodes with color"
+            title="Заполнять узлы цветом"
+            aria-label="Заполнять узлы цветом"
             color="primary"
             size="small"
             selected={fillNodesWithColor}
@@ -561,8 +561,8 @@ export const MoreActionsDrawer = ({
           </ToggleButton>
           <ToggleButton
             value={fillNodeAttachmentWithColor}
-            title="Fill node attachment with color"
-            aria-label="Fill node attachment with color"
+            title="Заполнять крепления узлов цветом"
+            aria-label="Заполнять крепления узлов цветом"
             color="primary"
             size="small"
             selected={fillNodeAttachmentWithColor}
@@ -573,8 +573,8 @@ export const MoreActionsDrawer = ({
           </ToggleButton>
           <ToggleButton
             value={expandDetailsTabs}
-            title="Expand details tabs"
-            aria-label="Expand details tabs"
+            title="Разворачивать вкладки деталей"
+            aria-label="Разворачивать вкладки деталей"
             color="primary"
             size="small"
             selected={expandDetailsTabs}
@@ -585,8 +585,8 @@ export const MoreActionsDrawer = ({
           </ToggleButton>
           <ToggleButton
             value={expandAddNodeButtons}
-            title="Expand add node buttons"
-            aria-label="Expand add node buttons"
+            title="Разворачивать кнопки добавления узлов"
+            aria-label="Разворачивать кнопки добавления узлов"
             color="primary"
             size="small"
             selected={expandAddNodeButtons}

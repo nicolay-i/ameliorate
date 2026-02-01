@@ -5,7 +5,7 @@ import { showNodeAndNeighbors } from "@/web/view/currentViewStore/filter";
 export const AlsoShowNodeAndNeighborsMenuItem = ({ node }: { node: Node }) => {
   return (
     <ContextMenuItem onClick={() => showNodeAndNeighbors(node.id, true)}>
-      Also show node and its neighbors
+      Также показать узел и его соседей
     </ContextMenuItem>
   );
 };

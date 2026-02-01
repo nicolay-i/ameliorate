@@ -25,8 +25,8 @@ export const NodeToolbar = ({ node, context }: Props) => {
     >
       {format === "diagram" && (
         <IconButton
-          title="View node in summary"
-          aria-label="View node in summary"
+          title="Показать узел в сводке"
+          aria-label="Показать узел в сводке"
           size="small"
           onClick={() => {
             viewNodeInSummary(node.id);
@@ -39,8 +39,8 @@ export const NodeToolbar = ({ node, context }: Props) => {
 
       {format !== "diagram" && (
         <IconButton
-          title="View node in diagram"
-          aria-label="View node in diagram"
+          title="Показать узел на диаграмме"
+          aria-label="Показать узел на диаграмме"
           size="small"
           onClick={() => {
             viewNodeInDiagram(node.id);
@@ -53,8 +53,8 @@ export const NodeToolbar = ({ node, context }: Props) => {
 
       {context !== "details" && (
         <IconButton
-          title="View node details"
-          aria-label="View node details"
+          title="Показать детали узла"
+          aria-label="Показать детали узла"
           size="small"
           onClick={() => {
             setSelected(node.id);
@@ -67,8 +67,8 @@ export const NodeToolbar = ({ node, context }: Props) => {
       )}
 
       <IconButton
-        title="View node actions"
-        aria-label="View node actions"
+        title="Действия с узлом"
+        aria-label="Действия с узлом"
         size="small"
         onClick={(event) => {
           // TODO: ideally this would open like a menu from the IconButton, not from the mouse position

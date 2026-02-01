@@ -47,7 +47,7 @@ export const ContextMenuItems = ({
       {contextPart && <CopyLinkToPartMenuItem graphPart={contextPart} />}
 
       {/* ensure there's never an empty context menu; that shows an empty bubble and feels awkward */}
-      <ContextMenuItem>Cancel</ContextMenuItem>
+      <ContextMenuItem>Отмена</ContextMenuItem>
     </>
   );
 };

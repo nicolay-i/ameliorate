@@ -15,7 +15,7 @@ export const CoreNodesColumn = () => {
 
   return (
     <>
-      <Row title="Core Nodes" Icon={Star} nodes={coreNodes} addButtonsSlot={AddButtons} />
+      <Row title="Ключевые узлы" Icon={Star} nodes={coreNodes} addButtonsSlot={AddButtons} />
     </>
   );
 };

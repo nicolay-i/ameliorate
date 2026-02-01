@@ -5,7 +5,7 @@ import { viewCriteriaTable } from "@/web/view/currentViewStore/filter";
 export const ViewTableMenuItem = ({ node }: { node: Node }) => {
   return (
     <ContextMenuItem onClick={() => viewCriteriaTable(node.id)}>
-      View criteria table
+      Показать таблицу критериев
     </ContextMenuItem>
   );
 };

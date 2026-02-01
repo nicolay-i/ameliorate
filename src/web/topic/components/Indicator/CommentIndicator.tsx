@@ -28,7 +28,7 @@ export const CommentIndicator = ({ graphPartId, graphPartType, bgColor }: Props)
   return (
     <ContentIndicator
       Icon={ChatBubbleOutline}
-      title={`Has ${commentCount} threads`} // could count total comments as well but logic is more annoying, and doesn't seem that important
+      title={`Есть ветки: ${commentCount}`} // could count total comments as well but logic is more annoying, and doesn't seem that important
       onClick={onClick}
       bgColor={bgColor}
     />

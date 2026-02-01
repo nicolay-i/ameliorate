@@ -52,7 +52,7 @@ export const Draft = ({
         size="small"
         slotProps={{ htmlInput: { className: "text-sm" } }}
         placeholder={
-          replying ? "Reply to this thread..." : "Write a comment, starting a new thread..."
+          replying ? "Ответить в этой ветке..." : "Написать комментарий и начать новую ветку..."
         }
         defaultValue={startingText}
         multiline
@@ -68,7 +68,7 @@ export const Draft = ({
 
       {showActionButtons && (
         <div className="mt-2 flex justify-end space-x-2">
-          <Button onClick={() => completeAction()}>Cancel</Button>
+          <Button onClick={() => completeAction()}>Отмена</Button>
 
           <Button
             onClick={() => {
@@ -96,7 +96,7 @@ export const Draft = ({
             variant="contained"
             disabled={!draftHasText}
           >
-            {creating ? "Send" : "Save"}
+            {creating ? "Отправить" : "Сохранить"}
           </Button>
         </div>
       )}

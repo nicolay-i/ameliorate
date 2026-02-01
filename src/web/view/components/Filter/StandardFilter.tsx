@@ -1,6 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Stack } from "@mui/material";
-import { startCase } from "es-toolkit";
 import { useCallback, useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
@@ -23,10 +22,35 @@ import {
   standardFilterSchemasByType,
 } from "@/web/view/utils/infoFilter";
 
+const problemDetailLabels: Record<(typeof problemDetails)[number], string> = {
+  causes: "Причины",
+  effects: "Эффекты",
+  subproblems: "Подпроблемы",
+  criteria: "Критерии",
+  solutions: "Решения",
+};
+
 const problemDetailsOptions = problemDetails.map((detail) => ({
   id: detail,
-  label: startCase(detail),
-})); // so that dropdown options can be startCased but ids can still be type-safe
+  label: problemDetailLabels[detail],
+}));
+
+const filterTypeLabels: Record<(typeof infoStandardFilterTypes)[InfoCategory][number], string> = {
+  none: "Нет",
+  highLevel: "Высокоуровневый",
+  problem: "Проблема",
+  tradeoffs: "Компромиссы",
+  solution: "Решение",
+  question: "Вопрос",
+  source: "Источник",
+  rootClaim: "Корневое утверждение",
+};
+
+const detailTypeLabels: Record<"all" | "connectedToCriteria" | "none", string> = {
+  all: "Все",
+  connectedToCriteria: "Связанные с критериями",
+  none: "Не показывать",
+};
 
 interface Props {
   infoCategory: InfoCategory;
@@ -49,7 +73,10 @@ export const StandardFilter = ({ infoCategory, filter }: Props) => {
   const { getValues, handleSubmit, reset, watch } = methods;
 
   const filterTypes = infoStandardFilterTypes[infoCategory];
-  const filterTypeOptions = filterTypes.map((type) => ({ id: type, label: startCase(type) })); // so that dropdown options can be startCased but ids can still be type-safe
+  const filterTypeOptions = filterTypes.map((type) => ({
+    id: type,
+    label: filterTypeLabels[type],
+  }));
 
   const type = watch("type");
   const typeSchemaShape = standardFilterSchemasByType[type].shape;
@@ -79,14 +106,14 @@ export const StandardFilter = ({ infoCategory, filter }: Props) => {
       <FormContext.Provider value={{ submit }}>
         <form style={{ padding: "8px" }}>
           <Stack spacing={1.5}>
-            <Select name="type" label="Standard Filter" options={filterTypeOptions} />
+            <Select name="type" label="Стандартный фильтр" options={filterTypeOptions} />
 
             {"layersDeep" in typeSchemaShape && <NumberInput name="layersDeep" min={0} max={10} />}
 
             {"centralProblemId" in typeSchemaShape && (
               <NodeSelect
                 name="centralProblemId"
-                label="Central Problem"
+                label="Центральная проблема"
                 useNodeOptions={useProblems}
               />
             )}
@@ -98,44 +125,53 @@ export const StandardFilter = ({ infoCategory, filter }: Props) => {
             {"centralSolutionId" in typeSchemaShape && (
               <NodeSelect
                 name="centralSolutionId"
-                label="Central Solution"
+                label="Центральное решение"
                 useNodeOptions={useSolutions}
               />
             )}
             {"solutionDetail" in typeSchemaShape && (
               <Select
                 name="solutionDetail"
-                // so that dropdown options can be startCased but ids can still be type-safe
                 options={typeSchemaShape.solutionDetail.options.map((option) => ({
                   id: option,
-                  label: startCase(option),
+                  label: detailTypeLabels[option],
                 }))}
               />
             )}
             {"solutions" in typeSchemaShape && (
-              <NodeSelect name="solutions" useNodeOptions={useProblemSolutions} multiple />
+              <NodeSelect
+                name="solutions"
+                label="Решения"
+                useNodeOptions={useProblemSolutions}
+                multiple
+              />
             )}
             {"criteria" in typeSchemaShape && (
-              <NodeSelect name="criteria" useNodeOptions={useProblemCriteria} multiple />
+              <NodeSelect
+                name="criteria"
+                label="Критерии"
+                useNodeOptions={useProblemCriteria}
+                multiple
+              />
             )}
             {"centralQuestionId" in typeSchemaShape && (
               <NodeSelect
                 name="centralQuestionId"
-                label="Central Question"
+                label="Центральный вопрос"
                 useNodeOptions={useQuestions}
               />
             )}
             {"centralSourceId" in typeSchemaShape && (
               <NodeSelect
                 name="centralSourceId"
-                label="Central Source"
+                label="Центральный источник"
                 useNodeOptions={useSources}
               />
             )}
             {"centralRootClaimId" in typeSchemaShape && (
               <NodeSelect
                 name="centralRootClaimId"
-                label="Central Root Claim"
+                label="Центральное корневое утверждение"
                 useNodeOptions={useRootClaims}
               />
             )}

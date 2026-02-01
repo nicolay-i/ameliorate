@@ -15,22 +15,22 @@ export const getReadingDiagramSteps = (track?: Track | null): StepType[] => [
     selector: `.${tutorialDefaultAnchorClass}`,
     content: (
       <StepContent
-        stepTitle="Nodes and edges"
+        stepTitle="Узлы и связи"
         text={
           <span>
-            We use nodes to represent concepts, and edges to represent relations between those.
+            Узлы представляют понятия, а связи — отношения между ними.
             <br />
             <br />
-            Here we have a <NodeTypeText type="problem" /> node saying that "cars going too fast" is
-            a problem, and an edge from the <NodeTypeText type="cause" /> that indicates "street
-            goes downhill" causes (to some extent) cars to go too fast.
+            Здесь есть узел <NodeTypeText type="problem" />, означающий «машины едут слишком быстро»,
+            и связь от <NodeTypeText type="cause" />, показывающая, что «улица идёт под уклон» в
+            некоторой степени приводит к слишком высокой скорости.
           </span>
         }
         imageSlot={
           <Image
             key="https://github.com/user-attachments/assets/14892d89-d970-407d-bb41-64dd6ae4ac6b"
             src="https://github.com/user-attachments/assets/14892d89-d970-407d-bb41-64dd6ae4ac6b"
-            alt="Edges"
+            alt="рёбра"
             width={273}
             height={324}
             unoptimized
@@ -44,19 +44,20 @@ export const getReadingDiagramSteps = (track?: Track | null): StepType[] => [
     selector: `.${tutorialDefaultAnchorClass}`,
     content: (
       <StepContent
-        stepTitle="Diagram layout"
+        stepTitle="Расположение диаграммы"
         text={
           <span>
-            Generally, <NodeTypeText type="problem" /> details are placed at the top, with{" "}
-            <NodeTypeText type="solution" /> details across from them at the bottom. Solution
-            tradeoffs (<NodeTypeText type="criterion" />) are in between.
+            Обычно детали <NodeTypeText type="problem" /> располагаются сверху, а детали{" "}
+            <NodeTypeText type="solution" /> — напротив, снизу. Компромиссы решений (
+            <NodeTypeText type="criterion" />
+            ) — между ними.
             <br />
             <br />
-            You can check out{" "}
+            Посмотрите{" "}
             <Link href="https://ameliorate.app/examples/ontology" target="_blank">
-              ontology
+              онтологию
             </Link>{" "}
-            if you want to see every type of node, with examples of each.
+            если хотите увидеть все типы узлов с примерами.
           </span>
         }
         imageSlot={
@@ -64,14 +65,14 @@ export const getReadingDiagramSteps = (track?: Track | null): StepType[] => [
             <Image
               key="https://github.com/user-attachments/assets/dc5029a6-51c5-4b03-92c8-ed67ab9eb500"
               src="https://github.com/user-attachments/assets/dc5029a6-51c5-4b03-92c8-ed67ab9eb500"
-              alt="layout of details via cars-going-too-fast"
+              alt="раскладка деталей на примере cars-going-too-fast"
               width={1237}
               height={911}
               unoptimized
               className="rounded-xl border shadow-sm"
             />
             <Typography variant="caption">
-              From:{" "}
+              Из:{" "}
               <Link
                 href="https://ameliorate.app/examples/detailed-cars-going-too-fast?view=All+structure"
                 target="_blank"
@@ -88,23 +89,23 @@ export const getReadingDiagramSteps = (track?: Track | null): StepType[] => [
     selector: `.${tutorialDefaultAnchorClass}`,
     content: (
       <StepContent
-        stepTitle="Scoring"
+        stepTitle="Оценки"
         text={
           <span>
-            Scores convey positive or negative opinion about a node or edge. If you're logged in,
-            you can score other people's topics. Click the "Show indicators" button{" "}
-            <TabUnselected /> in the toolbar to show scores and other indicators.
+            Оценки выражают положительное или отрицательное мнение об узле или связи. Если вы вошли,
+            можно оценивать темы других. Нажмите кнопку индикаторов <TabUnselected /> на панели, чтобы
+            показать оценки и другие индикаторы.
             <br />
             <br />
-            Here we're saying that we think pedestrians getting hit is a big concern, and that
-            people getting places faster is a benefit but we don't care about it at all.
+            Здесь мы отмечаем, что столкновения с пешеходами — серьёзная проблема, а скорость
+            передвижения — выгода, которая нам не важна.
           </span>
         }
         imageSlot={
           <Image
             key="https://github.com/user-attachments/assets/47b18abe-cf40-47cf-9b18-f376dfbe7723"
             src="https://github.com/user-attachments/assets/47b18abe-cf40-47cf-9b18-f376dfbe7723"
-            alt="scoring a node"
+            alt="оценка узла"
             width={434}
             height={328}
             unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940
@@ -119,18 +120,18 @@ export const getReadingDiagramSteps = (track?: Track | null): StepType[] => [
         selector: `.${tutorialDefaultAnchorClass}`,
         content: (
           <StepContent
-            stepTitle='Completed "Reading a diagram"! 🎉'
-            text="Woot woot! Next, learn how to navigate all the information in a topic."
+            stepTitle='Готово: "Чтение диаграммы"! 🎉'
+            text="Отлично! Далее — как ориентироваться во всей информации темы."
             actionSlot={
               <Button variant="contained" onClick={() => startTutorial("navigatingATopic", track)}>
-                Next: Navigating
+                Далее: Навигация
               </Button>
             }
             imageSlot={
               <Image
                 key={celebrateGif}
                 src={celebrateGif}
-                alt="Celebrate completed tutorial!"
+                alt="Празднуем завершение обучения!"
                 width={256}
                 height={143}
                 unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940
@@ -143,13 +144,13 @@ export const getReadingDiagramSteps = (track?: Track | null): StepType[] => [
         selector: `.${tutorialDefaultAnchorClass}`,
         content: (
           <StepContent
-            stepTitle='Completed "Reading a diagram"! 🎉'
-            text="Woot woot! Now you're ready to understand other people's diagrams in Ameliorate 🔥."
+            stepTitle='Готово: "Чтение диаграммы"! 🎉'
+            text="Отлично! Теперь вы готовы понимать диаграммы других в Ameliorate 🔥."
             imageSlot={
               <Image
                 key={celebrateGif}
                 src={celebrateGif}
-                alt="Celebrate completed tutorial!"
+                alt="Празднуем завершение обучения!"
                 width={256}
                 height={143}
                 unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940

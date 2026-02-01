@@ -15,5 +15,5 @@ export const DeleteEdgeMenuItem = ({ edge }: { edge: Edge }) => {
   // don't allow modifying edges that are part of the table, because they should always exist as long as their nodes do
   if (isTableEdge) return <></>;
 
-  return <ContextMenuItem onClick={() => deleteEdge(edge.id)}>Delete edge</ContextMenuItem>;
+  return <ContextMenuItem onClick={() => deleteEdge(edge.id)}>Удалить связь</ContextMenuItem>;
 };

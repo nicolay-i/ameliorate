@@ -93,13 +93,13 @@ export const NumberInput = React.forwardRef(function NumberInput(
                 }}
               >
                 <BaseNumberField.Increment
-                  render={<IconButton size="small" aria-label="Increase" />}
+                  render={<IconButton size="small" aria-label="Увеличить" />}
                 >
                   <KeyboardArrowUpIcon fontSize="small" sx={{ transform: "translateY(2px)" }} />
                 </BaseNumberField.Increment>
 
                 <BaseNumberField.Decrement
-                  render={<IconButton size="small" aria-label="Decrease" />}
+                  render={<IconButton size="small" aria-label="Уменьшить" />}
                 >
                   <KeyboardArrowDownIcon fontSize="small" sx={{ transform: "translateY(-2px)" }} />
                 </BaseNumberField.Decrement>

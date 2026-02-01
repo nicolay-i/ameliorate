@@ -10,7 +10,7 @@ export const QuickViewSelect = () => {
     <TextField
       select
       id="quick-view-select" // allow selecting element from tutorial
-      label="Quick View"
+      label="Быстрый вид"
       value={selectedViewId ?? "no-view-selected"}
       onChange={(event) => selectView(event.target.value)}
       slotProps={{
@@ -27,7 +27,7 @@ export const QuickViewSelect = () => {
     >
       {/* e.g. if user manually changes a filter */}
       <option key="no-view-selected" value="no-view-selected" hidden>
-        Custom
+        Пользовательский
       </option>
 
       {quickViews.map((view, index) => (

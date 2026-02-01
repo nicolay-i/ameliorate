@@ -42,7 +42,7 @@ export const SolutionsColumn = ({ summaryNode }: Props) => {
     summaryNode.type === "problem" &&
     directNodes.filter((node) => node.type === "solution").length > 1 ? (
       <Link component="button" variant="body2" onClick={() => viewCriteriaTable(summaryNode.id)}>
-        View tradeoffs table
+        Открыть таблицу компромиссов
       </Link>
     ) : (
       <></>
@@ -51,7 +51,7 @@ export const SolutionsColumn = ({ summaryNode }: Props) => {
   return (
     <div className="flex flex-col">
       <Row
-        title="Solutions"
+        title="Решения"
         Icon={nodeDecorations.solution.NodeIcon}
         addButtonsSlot={AddButtons}
         actionSlot={viewTableAction}
@@ -61,7 +61,7 @@ export const SolutionsColumn = ({ summaryNode }: Props) => {
       <Divider className="mx-2 my-1" />
 
       <Row
-        title="Indirect"
+        title="Косвенно"
         Icon={Timeline}
         endHeaderSlot={<IndirectHelpIcon />}
         nodes={indirectNodes}

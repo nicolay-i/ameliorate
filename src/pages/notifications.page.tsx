@@ -65,7 +65,7 @@ export default withPageAuthRequired(({ user }) => {
   const columnData: MRT_ColumnDef<RowData>[] = [
     {
       accessorKey: "message",
-      header: "Notification",
+      header: "Уведомление",
       Cell: ({ row }) => {
         const { message, topic } = row.original;
 
@@ -78,7 +78,7 @@ export default withPageAuthRequired(({ user }) => {
                   <Link href={`/${topic.creatorName}/${topic.title}`}>{topic.title}</Link>
                 </>
               ) : (
-                "(Topic not found)"
+                "(Тема не найдена)"
               )}
             </div>
             <p>{message}</p>
@@ -88,13 +88,13 @@ export default withPageAuthRequired(({ user }) => {
     },
     {
       accessorKey: "sourceUrl",
-      header: "Source",
-      Cell: ({ row }) => <Link href={row.original.sourceUrl}>view comment</Link>,
+      header: "Источник",
+      Cell: ({ row }) => <Link href={row.original.sourceUrl}>посмотреть комментарий</Link>,
       grow: false,
     },
     {
       accessorKey: "createdAt",
-      header: "Created",
+      header: "Создано",
       Cell: ({ row }) => (
         // TODO?: use relative date
         <span title={row.original.createdAt.toLocaleString()}>
@@ -110,16 +110,16 @@ export default withPageAuthRequired(({ user }) => {
   return (
     <>
       <Head>
-        <title>Notifications | Ameliorate</title>
-        <meta name="description" content="View your notifications." />
+        <title>Уведомления | Ameliorate</title>
+        <meta name="description" content="Просмотр ваших уведомлений." />
       </Head>
 
       <Typography variant="h5" className="mx-auto my-3">
-        Notifications
+        Уведомления
       </Typography>
 
       <FormControlLabel
-        label={<Typography>Receive Email Notifications</Typography>}
+        label={<Typography>Получать уведомления по email</Typography>}
         control={
           <MuiSwitch
             checked={sessionUser.receiveEmailNotifications}

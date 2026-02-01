@@ -85,7 +85,7 @@ const AddMenuSearch = ({ fromNodeId, addableRelations, className }: AddMenuSearc
       onKeyDown={(event) => event.stopPropagation()} // don't trigger parent menu's default keydown handler, which e.g. makes "a" select "Add Cause" menu item instead of typing in the search box
       renderInput={(params) => (
         <TextField
-          label="Connected nodes"
+          label="Связанные узлы"
           className="[&_input]:text-sm [&_label.MuiInputLabel-root:not(.MuiInputLabel-shrink)]:text-sm"
           {...params}
         />
@@ -243,13 +243,13 @@ const AddNodeButtonGroup = memo(
           ])
       : []; // right now addable node types are all assumed to be common
 
-    const menuButtonTitle = title ?? (!expandAddNodeButtons ? "Add node" : "Add more");
+    const menuButtonTitle = title ?? (!expandAddNodeButtons ? "Добавить узел" : "Добавить еще");
 
     return (
       <>
         <ButtonGroup
           variant="contained"
-          aria-label="add node button group"
+          aria-label="группа кнопок добавления узлов"
           className={
             // default for button group is inline-flex, but that creates different spacing than flex, and flex spacing seems nicer
             "flex" +
@@ -322,14 +322,14 @@ const AddNodeButtonGroup = memo(
           {!expandAddNodeButtons &&
             commonNodeButtons.length > 0 &&
             uncommonNodeButtons.length > 0 && (
-              <ListSubheader className="leading-loose">Common</ListSubheader>
+              <ListSubheader className="leading-loose">Частые</ListSubheader>
             )}
           {!expandAddNodeButtons && commonNodeButtons}
           {!expandAddNodeButtons &&
             commonNodeButtons.length > 0 &&
             uncommonNodeButtons.length > 0 && <Divider />}
           {!expandAddNodeButtons && uncommonNodeButtons.length > 0 && (
-            <ListSubheader className="leading-loose">Uncommon</ListSubheader>
+            <ListSubheader className="leading-loose">Редкие</ListSubheader>
           )}
           {uncommonNodeButtons}
         </Menu>

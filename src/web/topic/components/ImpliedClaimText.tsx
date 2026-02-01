@@ -16,8 +16,7 @@ export const ImpliedClaimText = ({ graphPart }: { graphPart: GraphPart }) => {
   if (isNode) {
     return (
       <i>
-        "{graphPart.data.label}" <b>is an important {prettyNodeTypes[graphPart.type]}</b> in this
-        topic
+        "{graphPart.data.label}" — <b>важный {prettyNodeTypes[graphPart.type]}</b> в этой теме
       </i>
     );
   } else {

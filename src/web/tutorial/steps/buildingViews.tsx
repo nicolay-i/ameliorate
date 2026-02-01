@@ -18,14 +18,14 @@ export const buildingViewsSteps: StepType[] = [
     selector: quickViewDropdownSelector,
     content: (
       <StepContent
-        stepTitle="Quick Views"
+        stepTitle="Быстрые виды"
         text={
           <span>
-            Quick Views allow you to easily jump between different views that you find useful.
+            Быстрые виды помогают легко переключаться между полезными для вас представлениями.
             <br />
             <br />
-            They can also be a good starting point for others to see what's important about your
-            topic.
+            Они также могут быть хорошей отправной точкой для других, чтобы увидеть, что важно в
+            вашей теме.
           </span>
         }
         imageSlot={
@@ -33,7 +33,7 @@ export const buildingViewsSteps: StepType[] = [
             <Image
               key="https://github.com/user-attachments/assets/87055acd-debb-45f2-981f-ef511e770222"
               src="https://github.com/user-attachments/assets/87055acd-debb-45f2-981f-ef511e770222"
-              alt="clicking between views in cars-going-too-fast topic"
+              alt="переключение между видами в теме cars-going-too-fast"
               width={1096}
               height={847}
               unoptimized // warning without this - gifs aren't optimized by nextjs apparently
@@ -41,7 +41,7 @@ export const buildingViewsSteps: StepType[] = [
               className="rounded-xl border bg-paperPlain-main p-2 shadow-sm"
             />
             <Typography variant="caption">
-              From:{" "}
+              Из:{" "}
               <Link
                 href="https://ameliorate.app/examples/detailed-cars-going-too-fast"
                 target="_blank"
@@ -58,14 +58,14 @@ export const buildingViewsSteps: StepType[] = [
     selector: viewsPaneSelector,
     content: (
       <StepContent
-        stepTitle="Filters"
+        stepTitle="Фильтры"
         text={
           <span>
-            A view is made up of its filters and a few settings.
+            Вид состоит из набора фильтров и нескольких настроек.
             <br />
             <br />
-            There are Information Filters, General Filters, Table Filters (if you're viewing a
-            table), and some Diagram Config in the More Actions Drawer <Build />.
+            Есть фильтры информации, общие фильтры, фильтры таблицы (если вы смотрите таблицу), а
+            также настройки диаграммы в панели «Другие действия» <Build />.
           </span>
         }
         imageSlot={
@@ -73,7 +73,7 @@ export const buildingViewsSteps: StepType[] = [
             <Image
               key="https://github.com/user-attachments/assets/ebdaefb6-26fb-4eef-b710-34fa303f7ad4"
               src="https://github.com/user-attachments/assets/ebdaefb6-26fb-4eef-b710-34fa303f7ad4"
-              alt="showing the kinds of filters"
+              alt="показаны виды фильтров"
               width={450}
               height={434}
               unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940
@@ -88,20 +88,18 @@ export const buildingViewsSteps: StepType[] = [
     selector: viewsPaneSelector,
     content: (
       <StepContent
-        stepTitle="Information Filters"
+        stepTitle="Фильтры информации"
         text={
           <span>
-            Information Filters control filtering based on categories of info - Breakdown (
-            <NodeTypeText type="problem" />,
-            <NodeTypeText type="solution" />, etc), Research (
-            <NodeTypeText type="question" />, <NodeTypeText type="fact" />,{" "}
-            <NodeTypeText type="source" />, etc), and Justification (<NodeTypeText type="support" />
-            , <NodeTypeText type="critique" />
+            Фильтры информации управляют категориями: Декомпозиция (<NodeTypeText type="problem" />
+            , <NodeTypeText type="solution" />, и т. д.), Исследование (<NodeTypeText type="question" />,{" "}
+            <NodeTypeText type="fact" />, <NodeTypeText type="source" />, и т. д.) и Обоснование (
+            <NodeTypeText type="support" />, <NodeTypeText type="critique" />
             ).
             <br />
             <br />
-            Here we're toggling on the Research category, which adds questions, facts, and sources
-            to the diagram.
+            Здесь мы включаем категорию «Исследование», добавляя вопросы, факты и источники на
+            диаграмму.
           </span>
         }
         imageSlot={
@@ -109,14 +107,14 @@ export const buildingViewsSteps: StepType[] = [
             <Image
               key="https://github.com/user-attachments/assets/edbc5e18-447e-4ae7-a0ae-00aa9f72e8c8"
               src="https://github.com/user-attachments/assets/edbc5e18-447e-4ae7-a0ae-00aa9f72e8c8"
-              alt="toggling on and off some Information Filters"
+              alt="включение и выключение информационных фильтров"
               width={659}
               height={412}
               unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940
               className="rounded-xl border shadow-sm"
             />
             <Typography variant="caption">
-              From:{" "}
+              Из:{" "}
               <Link
                 href="https://ameliorate.app/examples/detailed-cars-going-too-fast"
                 target="_blank"
@@ -133,15 +131,15 @@ export const buildingViewsSteps: StepType[] = [
     selector: viewsPaneSelector,
     content: (
       <StepContent
-        stepTitle="General Filters"
+        stepTitle="Общие фильтры"
         text={
           <span>
-            General Filters control other filtering - e.g. which types of nodes to display,
-            filtering by scores, specific nodes to show/hide regardless of other filters.
+            Общие фильтры управляют прочими параметрами: какие типы узлов показывать, фильтрация по
+            оценкам, какие конкретные узлы показывать/скрывать независимо от других фильтров.
             <br />
             <br />
-            Here we're filtering out <NodeTypeText type="cause" /> nodes, and choosing to override
-            that to show the "street goes downhill" cause.
+            Здесь мы скрываем узлы типа <NodeTypeText type="cause" /> и вручную показываем причину
+            «улица идёт под уклон».
           </span>
         }
         imageSlot={
@@ -149,14 +147,14 @@ export const buildingViewsSteps: StepType[] = [
             <Image
               key="https://github.com/user-attachments/assets/533529a7-0de0-4c22-94cf-d9b00943399f"
               src="https://github.com/user-attachments/assets/533529a7-0de0-4c22-94cf-d9b00943399f"
-              alt="changing some General Filters"
+              alt="изменение общих фильтров"
               width={659}
               height={369}
               unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940
               className="rounded-xl border shadow-sm"
             />
             <Typography variant="caption">
-              From:{" "}
+              Из:{" "}
               <Link
                 href="https://ameliorate.app/examples/detailed-cars-going-too-fast"
                 target="_blank"
@@ -173,15 +171,14 @@ export const buildingViewsSteps: StepType[] = [
     selector: viewsPaneSelector,
     content: (
       <StepContent
-        stepTitle="Hidden neighbors"
+        stepTitle="Скрытые соседи"
         text={
           <span>
-            If a node's handle is blue, that means it has a neighbor that's currently being hidden
-            by a filter.
+            Если маркер узла синий, значит у него есть сосед, который сейчас скрыт фильтром.
             <br />
             <br />
-            You can un-hide a hidden neighbor by clicking on the eye, or re-hide it by
-            right-clicking and clicking hide.
+            Скрытого соседа можно показать, кликнув на значок глаза, или снова скрыть через
+            контекстное меню.
           </span>
         }
         imageSlot={
@@ -189,14 +186,14 @@ export const buildingViewsSteps: StepType[] = [
             <Image
               key="https://github.com/user-attachments/assets/2ceccd62-e5ff-46ad-81cb-e0c564ed4269"
               src="https://github.com/user-attachments/assets/2ceccd62-e5ff-46ad-81cb-e0c564ed4269"
-              alt="showing neighbor indicator"
+              alt="показ индикатора соседей"
               width={600}
               height={445}
               unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940
               className="rounded-xl border shadow-sm"
             />
             <Typography variant="caption">
-              From:{" "}
+              Из:{" "}
               <Link
                 href="https://ameliorate.app/examples/detailed-cars-going-too-fast"
                 target="_blank"
@@ -213,14 +210,13 @@ export const buildingViewsSteps: StepType[] = [
     selector: viewsPaneSelector,
     content: (
       <StepContent
-        stepTitle="Showing & hiding neighbors"
+        stepTitle="Показ и скрытие соседей"
         text={
           <span>
-            It's not uncommon to want to only look at a node and its neighbors, or to add all of a
-            node's neighbors to the view.
+            Часто хочется посмотреть только узел и его соседей, либо добавить всех соседей в вид.
             <br />
             <br />
-            You can find actions for these by right-clicking on a node.
+            Эти действия доступны в контекстном меню узла.
           </span>
         }
         imageSlot={
@@ -228,14 +224,14 @@ export const buildingViewsSteps: StepType[] = [
             <Image
               key="https://github.com/user-attachments/assets/0a2563db-5795-44ac-b0bd-e97292b4d18f"
               src="https://github.com/user-attachments/assets/0a2563db-5795-44ac-b0bd-e97292b4d18f"
-              alt="showing and hiding neighbors"
+              alt="показ и скрытие соседей"
               width={596}
               height={475}
               unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940
               className="rounded-xl border shadow-sm"
             />
             <Typography variant="caption">
-              From:{" "}
+              Из:{" "}
               <Link
                 href="https://ameliorate.app/examples/detailed-cars-going-too-fast"
                 target="_blank"
@@ -252,15 +248,14 @@ export const buildingViewsSteps: StepType[] = [
     selector: viewsPaneSelector,
     content: (
       <StepContent
-        stepTitle="Forcing nodes into layers"
+        stepTitle="Принудительные слои"
         text={
           <span>
-            One example of a view option that isn't a filter is the "Force nodes into layers"
-            option.
+            Пример настройки вида, не являющейся фильтром, — «Принудительно раскладывать по слоям».
             <br />
             <br />
-            This lays out problems at the top, criteria in the middle, and solutions at the bottom.
-            Sometimes it's desirable to turn this off and keep nodes closer together.
+            Она размещает проблемы сверху, критерии — посередине, решения — снизу. Иногда полезно
+            отключить эту опцию, чтобы узлы располагались ближе друг к другу.
           </span>
         }
         imageSlot={
@@ -268,14 +263,14 @@ export const buildingViewsSteps: StepType[] = [
             <Image
               key="https://github.com/user-attachments/assets/0ca650fe-9497-4837-825c-1b980b4cae97"
               src="https://github.com/user-attachments/assets/0ca650fe-9497-4837-825c-1b980b4cae97"
-              alt="forcing nodes into layers"
+              alt="фиксация узлов в слоях"
               width={591}
               height={516}
               unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940
               className="rounded-xl border shadow-sm"
             />
             <Typography variant="caption">
-              From:{" "}
+              Из:{" "}
               <Link
                 href="https://ameliorate.app/examples/detailed-cars-going-too-fast"
                 target="_blank"
@@ -292,14 +287,14 @@ export const buildingViewsSteps: StepType[] = [
     selector: viewsPaneSelector,
     content: (
       <StepContent
-        stepTitle="Saving Quick Views"
+        stepTitle="Сохранение быстрых видов"
         text={
           <span>
-            When you've got your view the way you want it, you can create a Quick View.
+            Когда вид настроен так, как нужно, можно создать быстрый вид.
             <br />
             <br />
-            If you change any filters after creating it and you want to update that view with new
-            settings, you can click the save icon to re-save that view's settings.
+            Если после этого вы поменяли фильтры и хотите обновить вид, нажмите иконку сохранения,
+            чтобы перезаписать настройки.
           </span>
         }
         imageSlot={
@@ -307,7 +302,7 @@ export const buildingViewsSteps: StepType[] = [
             <Image
               key="https://github.com/user-attachments/assets/74c43ce1-ede5-4623-9563-17c3963a0e12"
               src="https://github.com/user-attachments/assets/74c43ce1-ede5-4623-9563-17c3963a0e12"
-              alt="saving a Quick View"
+              alt="сохранение быстрого вида"
               width={788}
               height={475}
               unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940
@@ -322,13 +317,13 @@ export const buildingViewsSteps: StepType[] = [
     selector: `.${tutorialDefaultAnchorClass}`,
     content: (
       <StepContent
-        stepTitle='Completed "Building views"! 🎉'
-        text="All right! You've finished learning all the basics for using Ameliorate. Now you can reap the fruits of your labor and start building some diagrams! 🔥"
+        stepTitle='Готово: "Создание видов"! 🎉'
+        text="Отлично! Вы освоили основы Ameliorate. Теперь можно пожинать плоды и строить диаграммы! 🔥"
         imageSlot={
           <Image
             key={celebrateGif}
             src={celebrateGif}
-            alt="Celebrate completed tutorial!"
+            alt="Празднуем завершение обучения!"
             width={256}
             height={143}
             unoptimized // without this, nextjs sometimes tries to optimize the gif as an image - not sure why only sometimes though; thanks https://github.com/vercel/next.js/discussions/18628#discussioncomment-4036940

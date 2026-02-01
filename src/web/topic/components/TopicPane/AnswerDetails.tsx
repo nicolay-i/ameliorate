@@ -13,13 +13,13 @@ export const AnswerDetails = ({ answerNode }: Props) => {
 
   return (
     <div className="mt-2 flex flex-col items-center gap-0.5">
-      <Typography variant="body1">Answer to</Typography>
+      <Typography variant="body1">Ответ на</Typography>
 
       <Stack direction="row" justifyContent="center" alignItems="center">
         {question ? (
           <EditableNode node={question} />
         ) : (
-          <Typography>No question to answer!</Typography>
+          <Typography>Нет вопроса для ответа!</Typography>
         )}
       </Stack>
     </div>

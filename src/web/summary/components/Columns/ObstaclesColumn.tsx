@@ -33,7 +33,7 @@ export const ObstaclesColumn = ({ summaryNode }: Props) => {
   return (
     <div className="flex flex-col">
       <Row
-        title="Obstacles"
+        title="Препятствия"
         Icon={nodeDecorations.obstacle.NodeIcon}
         addButtonsSlot={AddButtons}
         nodes={directNodes}
@@ -42,7 +42,7 @@ export const ObstaclesColumn = ({ summaryNode }: Props) => {
       <Divider className="mx-2 my-1" />
 
       <Row
-        title="Indirect"
+        title="Косвенно"
         Icon={Timeline}
         endHeaderSlot={<IndirectHelpIcon />}
         nodes={indirectNodes}

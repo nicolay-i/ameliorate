@@ -30,7 +30,7 @@ export const CoreNodesHeading = ({ summaryNode }: { summaryNode: Node | null }) 
       className="flex items-center gap-1 p-1 text-[rgba(0,0,0,0.6)]"
       onClick={(event) => event.stopPropagation()} // e.g. prevent triggering node deselect from summary background click
     >
-      <IconWithTooltip tooltipHeading="Core nodes" icon={<Star fontSize="small" />} />
+      <IconWithTooltip tooltipHeading="Ключевые узлы" icon={<Star fontSize="small" />} />
 
       {coreNodesSortedByScoreThenType.map((node) => (
         <IconNode

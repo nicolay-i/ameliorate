@@ -20,26 +20,26 @@ export const Footer = () => {
       <div className="flex flex-col">
         <Typography variant="h6">Ameliorate</Typography>
         <NavLink href={docsPage} target="_blank">
-          Docs
+          Документация
         </NavLink>
         <NavLink href={gettingStartedPage} target="_blank">
-          Getting Started
+          Быстрый старт
         </NavLink>
         <NavLink href="/examples" target="_blank">
-          Examples
+          Примеры
         </NavLink>
         <NavLink href="https://ameliorate.app/docs/mission-vision" target="_blank">
-          Mission & Vision
+          Миссия и видение
         </NavLink>
         <NavLink href="https://ameliorate.app/docs/release-status" target="_blank">
-          Release Status
+          Статус релиза
         </NavLink>
       </div>
 
       <div className="flex flex-col">
-        <Typography variant="h6">Community</Typography>
+        <Typography variant="h6">Сообщество</Typography>
         <NavLink href={blogPage} target="_blank">
-          Blog
+          Блог
         </NavLink>
         <NavLink href={githubRepo} target="_blank">
           GitHub
@@ -56,15 +56,15 @@ export const Footer = () => {
       </div>
 
       <div className="flex flex-col">
-        <Typography variant="h6">Participate</Typography>
+        <Typography variant="h6">Участие</Typography>
         <NavLink href={feedbackPage} target="_blank">
-          Give Feedback
+          Обратная связь
         </NavLink>
         <NavLink href={discourseSessionsPage} target="_blank">
-          Discourse Sessions
+          Дискуссионные сессии
         </NavLink>
         <NavLink href={contributingPage} target="_blank">
-          Contributing
+          Вклад в проект
         </NavLink>
       </div>
     </div>

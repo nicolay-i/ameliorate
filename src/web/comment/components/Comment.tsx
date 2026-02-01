@@ -80,7 +80,7 @@ export const Comment = ({ comment }: Props) => {
                 dateStyle: "short",
                 timeStyle: "short",
               })}
-              {comment.contentUpdatedAt > comment.createdAt ? " (edited)" : ""}
+              {comment.contentUpdatedAt > comment.createdAt ? " (отредактировано)" : ""}
             </span>
           </div>
         </div>
@@ -91,8 +91,8 @@ export const Comment = ({ comment }: Props) => {
             (!comment.resolved ? (
               <IconButton
                 color="inherit"
-                title="Resolve thread"
-                aria-label="Resolve thread"
+                title="Отметить решённым"
+                aria-label="Отметить решённым"
                 onClick={() => resolveComment(comment.id, true)}
               >
                 <Check />
@@ -100,8 +100,8 @@ export const Comment = ({ comment }: Props) => {
             ) : (
               <IconButton
                 color="inherit"
-                title="Unresolve thread"
-                aria-label="Unresolve thread"
+                title="Снять отметку решённого"
+                aria-label="Снять отметку решённого"
                 onClick={() => resolveComment(comment.id, false)}
               >
                 <RemoveDone />
@@ -110,8 +110,8 @@ export const Comment = ({ comment }: Props) => {
           {showSubscribeBell && (
             <IconButton
               color="inherit"
-              title={findSubscription.data === null ? "Subscribe" : "Unsubscribe"}
-              aria-label={findSubscription.data === null ? "Subscribe" : "Unsubscribe"}
+              title={findSubscription.data === null ? "Подписаться" : "Отписаться"}
+              aria-label={findSubscription.data === null ? "Подписаться" : "Отписаться"}
               onClick={
                 findSubscription.data === null
                   ? () => subscribe.mutate({ sourceId: threadStarterCommentId })
@@ -123,23 +123,23 @@ export const Comment = ({ comment }: Props) => {
           )}
           <IconButton
             color="inherit"
-            title="More"
-            aria-label="More"
+            title="Ещё"
+            aria-label="Ещё"
             onClick={(event) => setMoreAnchorEl(event.currentTarget)}
           >
             <MoreHoriz />
           </IconButton>
           <Menu anchorEl={moreAnchorEl} open={moreMenuOpen} onClose={() => setMoreAnchorEl(null)}>
-            {userCanEditComment && <MenuItem onClick={() => setEditing(true)}>Edit</MenuItem>}
+            {userCanEditComment && <MenuItem onClick={() => setEditing(true)}>Редактировать</MenuItem>}
             {userCanDeleteComment && (
-              <MenuItem onClick={() => setShowConfirmDelete(true)}>Delete</MenuItem>
+              <MenuItem onClick={() => setShowConfirmDelete(true)}>Удалить</MenuItem>
             )}
             <MenuItem
               onClick={() =>
                 void navigator.clipboard.writeText(getLinkToComment(comment.id, getTopic()))
               }
             >
-              Copy link to comment
+              Скопировать ссылку на комментарий
             </MenuItem>
           </Menu>
         </div>
@@ -161,7 +161,9 @@ export const Comment = ({ comment }: Props) => {
       {showConfirmDelete && (
         // jank "-top-2" to override the parent's space-y-2 that adds an equivalent margin
         <div className="absolute -top-2 left-0 flex size-full items-center justify-center bg-gray-100">
-          <span className="m-2">Delete this {isThreadStarterComment ? "thread" : "comment"}?</span>
+          <span className="m-2">
+            Удалить эту {isThreadStarterComment ? "ветку" : "комментарий"}?
+          </span>
           <Button
             onClick={() => {
               setShowConfirmDelete(false);
@@ -170,10 +172,10 @@ export const Comment = ({ comment }: Props) => {
             }}
             color="error"
           >
-            Delete
+            Удалить
           </Button>
           <Button color="inherit" onClick={() => setShowConfirmDelete(false)}>
-            Cancel
+            Отмена
           </Button>
         </div>
       )}

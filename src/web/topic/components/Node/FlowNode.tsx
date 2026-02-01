@@ -160,7 +160,7 @@ export const FlowNode = (flowNode: NodeProps) => {
         <AddNodeButtonGroup
           fromNodeId={flowNode.id}
           addableRelations={addableRelations}
-          title="Add node"
+          title="Добавить узел"
           openDirection={addButtonPosition === Position.Top ? "top" : "bottom"}
           className={`invisible absolute ${visibleOnNodeHoverSelectedClasses} ${addButtonPositionClasses} ${addButtonDecorationClasses}`}
         />

@@ -24,10 +24,10 @@ export const SummaryBreadcrumbs = () => {
       itemsBeforeCollapse={1} // always at least show home
       itemsAfterCollapse={2} // always at least show the previous node and current
       onClick={(event) => event.stopPropagation()} // e.g. prevent triggering node deselect from summary background click
-      aria-label="Summary Breadcrumbs"
+      aria-label="Хлебные крошки сводки"
       className="[&_.MuiBreadcrumbs-separator]:mx-1 [&>ol]:flex-nowrap"
     >
-      <Tooltip tooltipHeading="Summary Home">
+      <Tooltip tooltipHeading="Главная сводки">
         <button
           onClick={() => {
             setSelected(null);

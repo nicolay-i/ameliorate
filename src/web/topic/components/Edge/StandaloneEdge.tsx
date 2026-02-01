@@ -40,7 +40,7 @@ export const StandaloneEdge = ({ edge }: Props) => {
   const isEdgeSelected = useIsGraphPartSelected(edge.id);
 
   if (!sourceNode || !targetNode) {
-    return <p>Could not find edge data!</p>;
+    return <p>Не удалось найти данные ребра!</p>;
   }
 
   const flowEdge = convertToStandaloneFlowEdge(edge, isEdgeSelected);

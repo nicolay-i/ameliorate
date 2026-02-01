@@ -24,9 +24,9 @@ export const JustificationTreeIndicator = ({ graphPartId }: Props) => {
   }, [rootClaim]);
 
   const title =
-    "View justification tree" +
+    "Показать дерево обоснований" +
     (nonTopLevelJustificationCount > 0
-      ? ` (${nonTopLevelJustificationCount} justifications not shown here)`
+      ? ` (${nonTopLevelJustificationCount} обоснований не показаны здесь)`
       : "");
 
   return (

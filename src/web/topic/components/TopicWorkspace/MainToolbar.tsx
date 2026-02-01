@@ -26,7 +26,6 @@ import {
   Switch,
   ToggleButton,
 } from "@mui/material";
-import { startCase } from "es-toolkit";
 import { Dispatch, ReactNode, SetStateAction, useState } from "react";
 
 import { HelpIcon } from "@/web/common/components/HelpIcon";
@@ -78,8 +77,8 @@ const aggregationModeIcons: Record<AggregationMode, ReactNode> = {
 const QuickScoringHelpIcon = () => {
   return (
     <IconWithTooltip
-      tooltipHeading="Quick Scoring"
-      tooltipBody="Quick scoring allows you to set scores more quickly by showing score pies when hovering a score. This isn't on all the time because it can be annoying to see the score pies when you're not intending to score."
+      tooltipHeading="Быстрая оценка"
+      tooltipBody="Быстрая оценка позволяет быстрее выставлять оценки, показывая круговые индикаторы при наведении на оценку. Эта функция не включена постоянно, потому что индикаторы могут мешать, когда вы не собираетесь оценивать."
       icon={<HelpIcon />}
     />
   );
@@ -93,6 +92,10 @@ interface PerspectivesMenuProps {
 const PerspectivesMenu = ({ anchorEl, setAnchorEl }: PerspectivesMenuProps) => {
   const quickScoring = useQuickScoring();
   const aggregationMode = useAggregationMode();
+  const aggregationModeLabels: Record<AggregationMode, string> = {
+    average: "Среднее",
+    disagreement: "Разногласия",
+  };
 
   const menuOpen = Boolean(anchorEl);
   if (!menuOpen) return;
@@ -111,7 +114,7 @@ const PerspectivesMenu = ({ anchorEl, setAnchorEl }: PerspectivesMenuProps) => {
         <ListItemText
           primary={
             <span className="flex items-center gap-1">
-              Quick scoring <QuickScoringHelpIcon />
+              Быстрая оценка <QuickScoringHelpIcon />
             </span>
           }
         />
@@ -123,13 +126,13 @@ const PerspectivesMenu = ({ anchorEl, setAnchorEl }: PerspectivesMenuProps) => {
         />
       </MenuItem>
 
-      <NestedMenuItem label="Aggregation mode" parentMenuOpen={menuOpen} className="mb-2">
+      <NestedMenuItem label="Режим агрегации" parentMenuOpen={menuOpen} className="mb-2">
         <RadioGroup name="aggregation mode">
           {aggregationModes.map((mode) => {
             return (
               <MenuItem key={mode} onClick={() => setAggregationMode(mode)}>
                 <ListItemIcon>{aggregationModeIcons[mode]}</ListItemIcon>
-                <ListItemText primary={startCase(mode)} />
+                <ListItemText primary={aggregationModeLabels[mode]} />
                 <Radio checked={aggregationMode === mode} value={mode} name="aggregation mode" />
               </MenuItem>
             );
@@ -168,7 +171,7 @@ const ShowHideMenu = ({ anchorEl, setAnchorEl }: ShowHideMenuProps) => {
         <ListItemIcon>
           <Looks6 />
         </ListItemIcon>
-        <ListItemText primary="Show scores" />
+        <ListItemText primary="Показывать оценки" />
         <Switch
           checked={showScores}
           // for some reason the parent MenuItem click gets doubled if we don't stopPropagation
@@ -180,7 +183,7 @@ const ShowHideMenu = ({ anchorEl, setAnchorEl }: ShowHideMenuProps) => {
         <ListItemIcon>
           <ThumbsUpDown />
         </ListItemIcon>
-        <ListItemText primary="Show content indicators" />
+        <ListItemText primary="Показывать индикаторы содержания" />
         <Switch
           checked={showContentIndicators}
           // for some reason the parent MenuItem click gets doubled if we don't stopPropagation
@@ -192,7 +195,7 @@ const ShowHideMenu = ({ anchorEl, setAnchorEl }: ShowHideMenuProps) => {
         <ListItemIcon>
           <TableChartOutlined />
         </ListItemIcon>
-        <ListItemText primary="Show view indicators" />
+        <ListItemText primary="Показывать индикаторы видов" />
         <Switch
           checked={showViewIndicators}
           // for some reason the parent MenuItem click gets doubled if we don't stopPropagation
@@ -204,7 +207,7 @@ const ShowHideMenu = ({ anchorEl, setAnchorEl }: ShowHideMenuProps) => {
         <ListItemIcon>
           <WbTwilight />
         </ListItemIcon>
-        <ListItemText primary="Show force shown indicators" />
+        <ListItemText primary="Показывать индикаторы принудительного отображения" />
         <Switch
           checked={indicateWhenNodeForcedToShow}
           // for some reason the parent MenuItem click gets doubled if we don't stopPropagation
@@ -245,8 +248,8 @@ export const MainToolbar = () => {
         <ToggleButton
           value={false}
           selected={false}
-          title="Zen mode"
-          aria-label="Zen mode"
+          title="Дзен-режим"
+          aria-label="Дзен-режим"
           color="primary"
           size="small"
           onClick={() => toggleZenMode()}
@@ -256,8 +259,8 @@ export const MainToolbar = () => {
         </ToggleButton>
 
         <IconButton
-          title="Show/hide menu"
-          aria-label="Show/hide menu"
+          title="Меню показа/скрытия"
+          aria-label="Меню показа/скрытия"
           color="inherit"
           size="small"
           onClick={(event) => setShowHideMenuAnchorEl(event.currentTarget)}
@@ -273,8 +276,8 @@ export const MainToolbar = () => {
           <>
             <ToggleButton
               value={isComparingPerspectives}
-              title="Compare perspectives"
-              aria-label="Compare perspectives"
+              title="Сравнить перспективы"
+              aria-label="Сравнить перспективы"
               color="primary"
               size="small"
               selected={isComparingPerspectives}
@@ -288,8 +291,8 @@ export const MainToolbar = () => {
 
             <IconButton
               color="inherit"
-              title="Perspectives menu"
-              aria-label="Perspectives menu"
+              title="Меню перспектив"
+              aria-label="Меню перспектив"
               onClick={(event) => setPerspectivesMenuAnchorEl(event.currentTarget)}
               // small width to keep the menu button narrow
               // extra right padding because otherwise icon is too close to right-divider
@@ -310,8 +313,8 @@ export const MainToolbar = () => {
         {flashlightMode && (
           <ToggleButton
             value={flashlightMode}
-            title="Flashlight mode"
-            aria-label="Flashlight mode"
+            title="Режим фонарика"
+            aria-label="Режим фонарика"
             color="primary"
             size="small"
             selected={flashlightMode}
@@ -325,8 +328,8 @@ export const MainToolbar = () => {
         {readonlyMode && (
           <ToggleButton
             value={readonlyMode}
-            title={`Read-only mode (${hotkeys.readonlyMode})`}
-            aria-label={`Read-only mode (${hotkeys.readonlyMode})`}
+            title={`Режим только чтения (${hotkeys.readonlyMode})`}
+            aria-label={`Режим только чтения (${hotkeys.readonlyMode})`}
             color="primary"
             size="small"
             selected={readonlyMode}
@@ -343,8 +346,8 @@ export const MainToolbar = () => {
 
             <IconButton
               color="inherit"
-              title="Delete"
-              aria-label="Delete"
+              title="Удалить"
+              aria-label="Удалить"
               onClick={() => {
                 if (selectedGraphPart) {
                   deleteGraphPart(selectedGraphPart);
@@ -363,8 +366,8 @@ export const MainToolbar = () => {
 
         <IconButton
           color="inherit"
-          title="More actions"
-          aria-label="More actions"
+          title="Другие действия"
+          aria-label="Другие действия"
           onClick={() => setIsMoreActionsDrawerOpen(true)}
           className="rounded-sm"
         >
@@ -379,8 +382,8 @@ export const MainToolbar = () => {
 
         <IconButton
           color="inherit"
-          title="Help"
-          aria-label="Help"
+          title="Помощь"
+          aria-label="Помощь"
           onClick={(event) => setHelpAnchorEl(event.currentTarget)}
           className="rounded-sm"
         >

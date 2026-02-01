@@ -49,11 +49,30 @@ export const tracks: Record<Track, Tutorial[]> = {
 export const getStepHeader = (tutorial: Tutorial | null, track: Track | null) => {
   if (tutorial === "welcome") return ""; // there's only one step in the welcome tutorial and its title would be duplicate of the tutorial header
 
-  const sentenceCaseTutorial = capitalize(startCase(tutorial ?? undefined));
+  const tutorialLabels: Record<Tutorial, string> = {
+    welcome: "Добро пожаловать",
+    diagramBasics: "Основы диаграмм",
+    breakingDownAProblem: "Декомпозиция проблемы",
+    addingNuance: "Добавление нюансов",
+    evaluatingTradeoffs: "Оценка компромиссов",
+    buildingViews: "Создание видов",
+    readingADiagram: "Чтение диаграммы",
+    navigatingATopic: "Навигация по теме",
+    moreActions: "Другие действия",
+    advancedFiltering: "Расширенные фильтры",
+  };
+
+  const sentenceCaseTutorial = tutorial ? tutorialLabels[tutorial] : capitalize(startCase(undefined));
 
   if (tutorial && track) {
     const prettyTrack =
-      track === "diagramViewers" || track === "tableViewers" ? "VIEWERS" : track.toUpperCase();
+      track === "builders"
+        ? "СОЗДАТЕЛИ"
+        : track === "diagramViewers"
+          ? "ПРОСМОТР ДИАГРАММ"
+          : track === "tableViewers"
+            ? "ПРОСМОТР ТАБЛИЦ"
+            : "ЭКСПЕРТЫ";
     const stepNumber = tracks[track].indexOf(tutorial) + 1;
     const totalSteps = tracks[track].length;
 

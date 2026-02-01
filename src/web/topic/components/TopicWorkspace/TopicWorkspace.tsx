@@ -71,8 +71,8 @@ const ZenModeButton = () => {
     <ToggleButton
       value={true}
       selected={true}
-      title="Zen mode"
-      aria-label="Zen mode"
+      title="Дзен-режим"
+      aria-label="Дзен-режим"
       color="primary"
       size="small"
       onClick={() => toggleZenMode()}

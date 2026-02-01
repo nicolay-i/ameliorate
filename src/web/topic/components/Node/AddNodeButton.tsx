@@ -94,13 +94,13 @@ export const AddNodeButton = ({
     <MenuItem className={className} onClick={memoizedOnClick}>
       <ColoredNodeIcon type={toNodeType} className="mr-2 rounded-sm p-0.5" />
       <span>
-        Add {title}
+        Добавить {title}
         <i className="ml-1 text-slate-400">{titleSuffix}</i>
       </span>
     </MenuItem>
   ) : (
     <Tooltip
-      tooltipHeading={`Add ${title}` + titleSuffix}
+      tooltipHeading={`Добавить ${title}` + titleSuffix}
       placement={tooltipDirection}
       immediatelyOpenOnTouch={false}
       childrenHideViaCss={true}

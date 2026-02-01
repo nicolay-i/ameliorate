@@ -77,6 +77,35 @@ export const Summary = () => {
     ? selectedTab
     : summaryCategories[0];
 
+  const categoryLabel = (category: Category) => {
+    switch (category) {
+      case "coreNodes":
+        return "Ключевые узлы";
+      case "all":
+        return "Все";
+      case "components":
+        return "Компоненты";
+      case "motivation":
+        return "Мотивация";
+      case "solutionConcerns":
+        return "Опасения";
+      case "tradeoffs":
+        return "Компромиссы";
+      case "problemConcerns":
+        return "Опасения";
+      case "solutions":
+        return "Решения";
+      case "causeAndEffect":
+        return "Причины и эффекты";
+      case "nuance":
+        return "Нюансы";
+      case "isAbout":
+        return "О чем";
+      default:
+        return startCase(category);
+    }
+  };
+
   return (
     <div
       // max-w because the left/right-corner things (i.e. row header, row action, home button) become pretty far away on big screens otherwise.
@@ -97,7 +126,7 @@ export const Summary = () => {
         {/* separate div so that height can be set and consistent separately from the padding of the parent */}
         <div className="flex items-center" style={{ height: `${maxNodeHeightRem}rem` }}>
           {summaryNode === null ? (
-            <Typography variant="body1">Click on a core node to see its summary</Typography>
+            <Typography variant="body1">Нажмите на ключевой узел, чтобы увидеть сводку</Typography>
           ) : (
             <EditableNode node={summaryNode} />
           )}
@@ -107,7 +136,7 @@ export const Summary = () => {
       <TabContext value={selectedTabOrFallback}>
         <TabList
           onChange={(_, value: Category) => setSelectedSummaryTab(value)}
-          aria-label="Summary Tabs"
+          aria-label="Вкладки сводки"
           className="[&_.MuiTab-root]:min-w-auto [&_.MuiTab-root]:px-2 [&_.MuiTabScrollButton-root]:w-6"
           variant="scrollable"
           scrollButtons="auto"
@@ -119,11 +148,7 @@ export const Summary = () => {
               value={category}
               // hack because we want to distinguish the variable naming of solution concerns vs problem concerns
               // maybe ideally there'd be an optional `label` prop associated with the category?
-              label={
-                category === "solutionConcerns" || category === "problemConcerns"
-                  ? "Concerns"
-                  : startCase(category)
-              }
+              label={categoryLabel(category)}
               onClick={(event) => event.stopPropagation()} // e.g. prevent triggering node deselect from summary background click
             />
           ))}

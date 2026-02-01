@@ -48,8 +48,8 @@ export const AppHeader = () => {
       <div className="flex h-full items-center">
         <IconButton
           color="inherit"
-          title="Back"
-          aria-label="Back"
+          title="Назад"
+          aria-label="Назад"
           onClick={goBack}
           disabled={!canGoBack}
         >
@@ -57,8 +57,8 @@ export const AppHeader = () => {
         </IconButton>
         <IconButton
           color="inherit"
-          title="Forward"
-          aria-label="Forward"
+          title="Вперёд"
+          aria-label="Вперёд"
           onClick={goForward}
           disabled={!canGoForward}
         >
@@ -71,8 +71,8 @@ export const AppHeader = () => {
 
             <IconButton
               color="inherit"
-              title="Undo"
-              aria-label="Undo"
+              title="Отменить"
+              aria-label="Отменить"
               onClick={undo}
               disabled={!canUndo}
             >
@@ -80,8 +80,8 @@ export const AppHeader = () => {
             </IconButton>
             <IconButton
               color="inherit"
-              title="Redo"
-              aria-label="Redo"
+              title="Повторить"
+              aria-label="Повторить"
               onClick={redo}
               disabled={!canRedo}
             >
@@ -107,7 +107,7 @@ export const AppHeader = () => {
       }
     >
       {onPlayground ? (
-        "Playground Topic"
+        "Тема песочницы"
       ) : (
         <>
           <Link
@@ -129,7 +129,7 @@ export const AppHeader = () => {
         </>
       )}
 
-      <Tooltip tooltipHeading="View Topic Details">
+      <Tooltip tooltipHeading="Показать детали темы">
         <IconButton
           size="small"
           onClick={() => {
@@ -147,14 +147,14 @@ export const AppHeader = () => {
     // gap-4 on right header but not left because toolbar buttons already have spacing
     <div className={"shrink-0 px-2 border-l gap-4 " + headerCornerClasses}>
       <NavLink href="https://ameliorate.app/docs" target="_blank" className="hidden xl:block">
-        Docs
+        Документация
       </NavLink>
       <Link href={discordInvite} target="_blank" className="hidden sm:flex">
         <Image
           src={`/${theme.palette.mode}/Discord-Mark.png`}
           height={24}
           width={32}
-          alt="discord link"
+          alt="ссылка на Discord"
         />
       </Link>
       <Link href={githubRepo} target="_blank" className="hidden sm:flex">
@@ -162,7 +162,7 @@ export const AppHeader = () => {
           src={`/${theme.palette.mode}/GitHub-Mark.png`}
           height={32}
           width={32}
-          alt="github link"
+          alt="ссылка на GitHub"
         />
       </Link>
       <ProfileButton />

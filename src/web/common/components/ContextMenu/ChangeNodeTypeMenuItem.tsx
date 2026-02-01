@@ -19,7 +19,7 @@ export const ChangeNodeTypeMenuItem = ({ node, parentMenuOpen }: Props) => {
   if (!userCanEditTopicData) return <></>;
 
   return (
-    <NestedMenuItem label="Change node type" parentMenuOpen={parentMenuOpen}>
+    <NestedMenuItem label="Изменить тип узла" parentMenuOpen={parentMenuOpen}>
       {getSameCategoryNodeTypes(node.type).map((type) => {
         const title = prettyNodeTypes[type];
 

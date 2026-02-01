@@ -26,7 +26,7 @@ export const UserDrawer = ({ username, isUserDrawerOpen, setIsUserDrawerOpen }: 
         <ListItem
           disablePadding={false}
           secondaryAction={
-            <IconButton edge="end" aria-label="close" onClick={() => setIsUserDrawerOpen(false)}>
+            <IconButton edge="end" aria-label="закрыть" onClick={() => setIsUserDrawerOpen(false)}>
               <Close />
             </IconButton>
           }
@@ -44,7 +44,7 @@ export const UserDrawer = ({ username, isUserDrawerOpen, setIsUserDrawerOpen }: 
             <ListItemIcon>
               <AutoStories />
             </ListItemIcon>
-            <ListItemText primary="My Topics" />
+            <ListItemText primary="Мои темы" />
           </ListItemButton>
         </ListItem>
         <ListItem>
@@ -52,7 +52,7 @@ export const UserDrawer = ({ username, isUserDrawerOpen, setIsUserDrawerOpen }: 
             <ListItemIcon>
               <Notifications />
             </ListItemIcon>
-            <ListItemText primary="My Notifications" />
+            <ListItemText primary="Мои уведомления" />
           </ListItemButton>
         </ListItem>
         <ListItem>
@@ -64,7 +64,7 @@ export const UserDrawer = ({ username, isUserDrawerOpen, setIsUserDrawerOpen }: 
             <ListItemIcon>
               <Logout />
             </ListItemIcon>
-            <ListItemText primary="Log out" />
+            <ListItemText primary="Выйти" />
           </ListItemButton>
         </ListItem>
       </List>

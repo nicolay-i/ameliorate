@@ -20,15 +20,15 @@ const examples = [
   {
     title: "mattresses",
     href: "https://ameliorate.app/keyserj/mattresses",
-    category: "Personal decision",
-    purpose: "determine which mattress to buy",
-    notes: "Ameliorate is great at visualizing many options and their tradeoffs.",
+    category: "Личное решение",
+    purpose: "определить, какой матрас купить",
+    notes: "Ameliorate отлично визуализирует множество вариантов и их компромиссы.",
     complexity: 2,
     image: (
       <Image
         key="https://github.com/user-attachments/assets/e2f7f706-a9d4-4cee-bd21-3e2c1b5f7ea7"
         src="https://github.com/user-attachments/assets/e2f7f706-a9d4-4cee-bd21-3e2c1b5f7ea7"
-        alt="mattresses diagram"
+        alt="диаграмма матрасов"
         width={900}
         height={522}
         unoptimized
@@ -43,15 +43,15 @@ const examples = [
   {
     title: "ORM",
     href: "https://ameliorate.app/examples/ORM",
-    category: "Team decision",
-    purpose: "determine which tool to use",
-    notes: "Ameliorate is great at visualizing many options and their tradeoffs.",
+    category: "Командное решение",
+    purpose: "выбрать инструмент",
+    notes: "Ameliorate отлично визуализирует множество вариантов и их компромиссы.",
     complexity: 3,
     image: (
       <Image
         key="https://github.com/user-attachments/assets/cd390214-da00-4ad3-bb88-4234124ec17b"
         src="https://github.com/user-attachments/assets/cd390214-da00-4ad3-bb88-4234124ec17b"
-        alt="ORM diagram"
+        alt="диаграмма ORM"
         width={735}
         height={688}
         unoptimized
@@ -66,16 +66,16 @@ const examples = [
   {
     title: "cars-going-too-fast",
     href: "https://ameliorate.app/examples/detailed-cars-going-too-fast",
-    category: "Local policy",
-    purpose: "improve neighborhood safety",
+    category: "Местная политика",
+    purpose: "улучшить безопасность района",
     notes:
-      "Ameliorate can help keep track of various causes & effects, and scoring allows you to call out what you think matters.",
+      "Ameliorate помогает отслеживать причины и следствия, а оценки позволяют подчеркнуть важное.",
     complexity: 3,
     image: (
       <Image
         key="https://github.com/user-attachments/assets/87b1b0b8-3536-4c77-aa4a-d892f4ed4e6e"
         src="https://github.com/user-attachments/assets/87b1b0b8-3536-4c77-aa4a-d892f4ed4e6e"
-        alt="cars-going-too-fast diagram"
+        alt="диаграмма cars-going-too-fast"
         width={648}
         height={783}
         unoptimized
@@ -90,16 +90,16 @@ const examples = [
   {
     title: "10-percent-time",
     href: "https://ameliorate.app/keyserj/10-percent-time",
-    category: "Org decision",
-    purpose: "discuss an initiative proposal",
+    category: "Организационное решение",
+    purpose: "обсудить предложение инициативы",
     notes:
-      "Ameliorate is well-suited for visualizing proposals that have a few pieces, causes, and effects to consider.",
+      "Ameliorate хорошо подходит для визуализации инициатив с несколькими элементами, причинами и последствиями.",
     complexity: 3,
     image: (
       <Image
         key="https://github.com/user-attachments/assets/753b5c92-4bdd-43dc-840d-37dd70b8f904"
         src="https://github.com/user-attachments/assets/753b5c92-4bdd-43dc-840d-37dd70b8f904"
-        alt="10-percent-time diagram"
+        alt="диаграмма 10-percent-time"
         width={811}
         height={756}
         unoptimized
@@ -114,16 +114,16 @@ const examples = [
   {
     title: "free-school-meals",
     href: "https://ameliorate.app/keyserj/fl-2025-sb74-free-school-breakfast-lunch",
-    category: "State policy",
-    purpose: "improve student meal access",
+    category: "Государственная политика",
+    purpose: "улучшить доступ учащихся к питанию",
     notes:
-      "Ameliorate is well-suited for visualizing proposals that have a few pieces, causes, and effects to consider.",
+      "Ameliorate хорошо подходит для визуализации инициатив с несколькими элементами, причинами и последствиями.",
     complexity: 4,
     image: (
       <Image
         key="https://github.com/user-attachments/assets/23e0d83b-a716-4454-8ef6-2c37c106df82"
         src="https://github.com/user-attachments/assets/23e0d83b-a716-4454-8ef6-2c37c106df82"
-        alt="free-school-meals diagram"
+        alt="диаграмма бесплатных школьных обедов"
         width={787}
         height={739}
         unoptimized
@@ -138,16 +138,16 @@ const examples = [
   {
     title: "mta-congestion-tax",
     href: "https://ameliorate.app/keyserj/mta-congestion-pricing",
-    category: "Big city policy",
-    purpose: "improve transit legislation",
+    category: "Политика большого города",
+    purpose: "улучшить транспортное законодательство",
     notes:
-      "Ameliorate is well-suited for visualizing proposals that have a few pieces, causes, and effects to consider.",
+      "Ameliorate хорошо подходит для визуализации инициатив с несколькими элементами, причинами и последствиями.",
     complexity: 5,
     image: (
       <Image
         key="https://github.com/user-attachments/assets/fe036a09-6c16-409d-bdf1-6ddf8b828559"
         src="https://github.com/user-attachments/assets/fe036a09-6c16-409d-bdf1-6ddf8b828559"
-        alt="mta-congestion-tax diagram"
+        alt="диаграмма mta-congestion-tax"
         width={638}
         height={794}
         unoptimized
@@ -162,19 +162,19 @@ const examples = [
   {
     title: "california-wildfires",
     href: "https://ameliorate.app/keyserj/california-wildfire-season-worsening",
-    category: "Advocacy (1)",
-    purpose: "prevent & prepare for wildfires",
+    category: "Адвокация (1)",
+    purpose: "предотвратить и подготовиться к пожарам",
     notes: (
       <span>
-        Ameliorate is good for considering the high-level of complex problems, but as you add a lot
-        of detail, you may feel that some{" "}
+        Ameliorate полезен для разбора сложных проблем на высоком уровне, но при добавлении большого
+        количества деталей может показаться, что не хватает{" "}
         <Link
           href="https://github.com/amelioro/ameliorate/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22for%20large%20topics%22%2Cwicked%20"
           target="_blank"
         >
-          features
-        </Link>{" "}
-        are missing.
+          функций
+        </Link>
+        .
       </span>
     ),
     complexity: 7,
@@ -182,7 +182,7 @@ const examples = [
       <Image
         key="https://github.com/user-attachments/assets/e8d52795-5a9e-46c8-a8c8-781026eb7426"
         src="https://github.com/user-attachments/assets/e8d52795-5a9e-46c8-a8c8-781026eb7426"
-        alt="california-wildfires diagram"
+        alt="диаграмма калифорнийских лесных пожаров"
         width={569}
         height={805}
         unoptimized
@@ -197,19 +197,19 @@ const examples = [
   {
     title: "sugar-brutality",
     href: "https://ameliorate.app/keyserj/brutality-sugar-article",
-    category: "Advocacy (2)",
-    purpose: "raise awareness & motivate change",
+    category: "Адвокация (2)",
+    purpose: "повысить осведомленность и мотивировать к изменениям",
     notes: (
       <span>
-        Ameliorate is good for considering the high-level of complex problems, but as you add a lot
-        of detail, you may feel that some{" "}
+        Ameliorate полезен для разбора сложных проблем на высоком уровне, но при добавлении большого
+        количества деталей может показаться, что не хватает{" "}
         <Link
           href="https://github.com/amelioro/ameliorate/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22for%20large%20topics%22%2Cwicked%20"
           target="_blank"
         >
-          features
-        </Link>{" "}
-        are missing.
+          функций
+        </Link>
+        .
       </span>
     ),
     complexity: 8,
@@ -217,7 +217,7 @@ const examples = [
       <Image
         key="https://github.com/user-attachments/assets/62732e0e-494d-4767-a2ae-09b7056b6c7a"
         src="https://github.com/user-attachments/assets/62732e0e-494d-4767-a2ae-09b7056b6c7a"
-        alt="sugar-brutality diagram"
+        alt="диаграмма sugar-brutality"
         width={714}
         height={672}
         unoptimized
@@ -232,19 +232,19 @@ const examples = [
   {
     title: "climate-change",
     href: "https://ameliorate.app/examples/climate-change",
-    category: "Global issue",
-    purpose: "consider an overwhelming problem",
+    category: "Глобальная проблема",
+    purpose: "проанализировать сложную проблему",
     notes: (
       <span>
-        Like with other high-complexity issues, Ameliorate can help with considering the high-level,
-        but additional{" "}
+        Как и в других задачах высокой сложности, Ameliorate помогает смотреть на ситуацию сверху, но
+        для глобальных вопросов особенно нужны дополнительные{" "}
         <Link
           href="https://github.com/amelioro/ameliorate/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22for%20large%20topics%22%2Cwicked%20"
           target="_blank"
         >
-          features
-        </Link>{" "}
-        are even more desirable for global issues.
+          функции
+        </Link>
+        .
       </span>
     ),
     complexity: 10,
@@ -252,7 +252,7 @@ const examples = [
       <Image
         key="https://github.com/user-attachments/assets/63698108-8e9a-4b02-be79-c509015b96df"
         src="https://github.com/user-attachments/assets/63698108-8e9a-4b02-be79-c509015b96df"
-        alt="climate-change diagram"
+        alt="диаграмма изменения климата"
         width={718}
         height={651}
         unoptimized
@@ -287,7 +287,7 @@ export const ExamplesSection = () => {
   // TODO: currently we're sacrificing req 4 here in order to satisfy the others; ideally we'd find a solution that meets all these reqs without sacrifice.
   return (
     <div className="flex h-full flex-col text-center">
-      <Typography variant="h4">See the potential</Typography>
+      <Typography variant="h4">Увидьте потенциал</Typography>
 
       <Carousel
         ref={carouselRef}
@@ -343,12 +343,12 @@ export const ExamplesSection = () => {
             <Chip
               label={
                 example.complexity < 3
-                  ? "Low complexity"
+                  ? "Низкая сложность"
                   : example.complexity < 4
-                    ? "Low-ish complexity"
+                    ? "Почти низкая сложность"
                     : example.complexity < 7
-                      ? "Medium complexity"
-                      : "High complexity"
+                      ? "Средняя сложность"
+                      : "Высокая сложность"
               }
               className="mt-0 sm:mt-2"
               variant="outlined"
@@ -377,7 +377,7 @@ export const ExamplesSection = () => {
           </div>
 
           <Typography variant="body2" className="mt-2">
-            See in the app:{" "}
+            Демонстрируется в приложении:{" "}
             <Link href={example.href} target="_blank">
               {example.title}
             </Link>

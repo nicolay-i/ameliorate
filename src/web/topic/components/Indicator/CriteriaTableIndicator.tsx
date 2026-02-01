@@ -26,7 +26,7 @@ const CriteriaTableIndicatorBase = ({ nodeId }: Props) => {
     <ViewIndicator
       Icon={TableChartOutlined}
       filled={hasCriteria}
-      title={"View criteria table"}
+      title={"Показать таблицу критериев"}
       onClick={onClick}
     />
   );

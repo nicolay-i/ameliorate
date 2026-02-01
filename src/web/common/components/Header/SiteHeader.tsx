@@ -37,32 +37,32 @@ export const SiteHeader = () => {
             <SiteMenu className="p-0 md:hidden" />
             <Logo />
             <NavLink href="/playground" className="hidden sm:block">
-              Playground
+              Песочница
             </NavLink>
             {sessionUser && (
               <NavLink href={`/${sessionUser.username}`} className="hidden md:block">
-                My Topics
+                Мои темы
               </NavLink>
             )}
             {/* this can be shown without being logged in because it'll redirect to the login page if need be */}
             <NavLink href={"/new"} className="hidden md:block">
-              New Topic
+              Новая тема
             </NavLink>
           </div>
 
           <div className="flex items-center gap-4">
             <NavLink href="https://ameliorate.app/docs" target="_blank" className="hidden sm:block">
-              Docs
+              Документация
             </NavLink>
             <NavLink href={feedbackPage} target="_blank" className="hidden md:block">
-              Feedback
+              Обратная связь
             </NavLink>
             <Link href={discordInvite} target="_blank" className="hidden sm:flex">
               <Image
                 src={`/${theme.palette.mode}/Discord-Mark.png`}
                 height={24}
                 width={32}
-                alt="discord link"
+                alt="ссылка на Discord"
               />
             </Link>
             <Link href={githubRepo} target="_blank" className="flex">
@@ -70,7 +70,7 @@ export const SiteHeader = () => {
                 src={`/${theme.palette.mode}/GitHub-Mark.png`}
                 height={32}
                 width={32}
-                alt="github link"
+                alt="ссылка на GitHub"
               />
             </Link>
             <ProfileButton />

@@ -9,12 +9,13 @@ type Tab = "diagram" | "details";
 
 const copy = {
   diagram: {
-    title: "Problem-Solving Diagram",
-    description: `Lay out causes and effects, showing exactly how situations can be improved. This creates a concrete visual in which discussion can be grounded.`,
+    title: "Диаграмма решения проблемы",
+    description:
+      "Расставьте причины и следствия, чтобы показать, как можно улучшить ситуацию. Так появляется визуальная основа для обсуждений.",
     image: (
       <Image
         src="https://github.com/user-attachments/assets/4ef151aa-ebd3-4a4d-b2af-259d7a55a285"
-        alt="problem solving diagram"
+        alt="диаграмма решения проблемы"
         // want to be a max height of 600px - resolution is scaled from 1189x1440 (not using max-h because we still want to avoid layout shift)
         width={495.416}
         height={600}
@@ -24,12 +25,13 @@ const copy = {
     ),
   },
   details: {
-    title: '"Humble" Information',
-    description: `Each individual detail invites scrutiny in a structured manner. Anything can be scored, justified, questioned, have relevant facts, and more.`,
+    title: '"Скромная" информация',
+    description:
+      "Каждая деталь структурированно допускает анализ: её можно оценить, обосновать, поставить под сомнение, добавить факты и многое другое.",
     image: (
       <Image
         src="https://github.com/user-attachments/assets/06808ff9-f785-4ec6-9369-3cede79d9249"
-        alt="humble information"
+        alt="«скромная» информация"
         // want to be a max height of 600px - resolution is scaled from 558x809 (not using max-h because we still want to avoid layout shift)
         width={413.84}
         height={600}
@@ -46,7 +48,7 @@ export const CoreIdeasSection = () => {
 
   return (
     <div className="flex flex-col text-center">
-      <Typography variant="h4">Break things down</Typography>
+      <Typography variant="h4">Разделяйте проблему на части</Typography>
 
       <TabContext value={selectedCard}>
         <TabList
@@ -87,11 +89,11 @@ export const CoreIdeasSection = () => {
       </TabContext>
 
       <Typography variant="body2" className="mt-2">
-        See{" "}
+        Смотрите{" "}
         <Link href="/examples/ontology" target="_blank">
-          ontology
+          онтологию
         </Link>{" "}
-        for an interactive visual of all information types in Ameliorate
+        для интерактивной визуализации всех типов информации в Ameliorate
       </Typography>
     </div>
   );

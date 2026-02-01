@@ -25,11 +25,11 @@ export const SourceDetails = ({ sourceNode }: Props) => {
   return (
     <>
       <div className="mt-2 flex flex-col items-center gap-0.5">
-        <Typography variant="body1">Relevant For</Typography>
+        <Typography variant="body1">Относится к</Typography>
 
         <NodeList>
           {nodesRelevantFor.length === 0 && edgesRelevantFor.length === 0 && (
-            <Typography variant="body2">No relevant parts yet!</Typography>
+            <Typography variant="body2">Пока нет связанных частей!</Typography>
           )}
           {nodesRelevantFor.length > 0 &&
             nodesRelevantFor.map((node) => <EditableNode key={node.id} node={node} />)}
@@ -39,7 +39,7 @@ export const SourceDetails = ({ sourceNode }: Props) => {
       </div>
 
       <div className="mt-4 flex flex-col items-center gap-0.5">
-        <Typography variant="body1">Mentions</Typography>
+        <Typography variant="body1">Упоминания</Typography>
 
         {userCanEditTopicData && (
           <AddNodeButtonGroup
@@ -58,7 +58,7 @@ export const SourceDetails = ({ sourceNode }: Props) => {
           {mentions.length > 0 ? (
             mentions.map((mentioned) => <EditableNode key={mentioned.id} node={mentioned} />)
           ) : (
-            <Typography variant="body2">No mentioned facts or sources yet!</Typography>
+            <Typography variant="body2">Пока нет упомянутых фактов или источников!</Typography>
           )}
         </NodeList>
       </div>

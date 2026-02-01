@@ -57,7 +57,7 @@ export const Row = ({ title, Icon, nodes, addButtonsSlot, endHeaderSlot, actionS
       {nodes && (
         <ContentDiv className="flex flex-wrap justify-center gap-2.5 p-0.5 lg:gap-4">
           {nodes.length === 0 ? (
-            <Typography variant="body2">No nodes yet!</Typography>
+            <Typography variant="body2">Пока нет узлов!</Typography>
           ) : (
             nodesSortedByScoreThenType.map((node) => (
               <EditableNode key={node.id} node={node} className="[zoom:80%] lg:[zoom:normal]" />

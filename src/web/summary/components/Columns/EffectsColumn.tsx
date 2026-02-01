@@ -40,7 +40,7 @@ export const EffectsColumn = ({ summaryNode }: Props) => {
   return (
     <div className="flex flex-col">
       <Row
-        title="Effects"
+        title="Эффекты"
         Icon={nodeDecorations.effect.NodeIcon}
         addButtonsSlot={AddButtons}
         nodes={directNodes}
@@ -49,7 +49,7 @@ export const EffectsColumn = ({ summaryNode }: Props) => {
       <Divider className="mx-2 my-1" />
 
       <Row
-        title="Indirect"
+        title="Косвенно"
         Icon={Timeline}
         endHeaderSlot={<IndirectHelpIcon />}
         nodes={indirectNodes}
