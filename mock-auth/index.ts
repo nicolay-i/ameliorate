@@ -10,13 +10,26 @@
 
 import Provider, { type Configuration } from "oidc-provider";
 
+const getEnv = (name: string) => {
+  const value = process.env[name];
+  return value && value.trim().length > 0 ? value.trim() : undefined;
+};
+
+const normalizeBaseUrl = (url: string) => url.replace(/\/+$/, "");
+
+const port = Number(getEnv("MOCK_AUTH_PORT") ?? "9000");
+const appBaseUrl = normalizeBaseUrl(getEnv("MOCK_AUTH_APP_BASE_URL") ?? "http://localhost:3000");
+const issuerBaseUrl = normalizeBaseUrl(
+  getEnv("MOCK_AUTH_ISSUER_BASE_URL") ?? `http://localhost:${port}`,
+);
+
 const config: Configuration = {
   clients: [
     {
       client_id: "foo",
       client_secret: "bar",
-      redirect_uris: ["http://localhost:3000/api/auth/callback"],
-      post_logout_redirect_uris: ["http://localhost:3000"],
+      redirect_uris: [`${appBaseUrl}/api/auth/callback`],
+      post_logout_redirect_uris: [appBaseUrl],
       grant_types: ["authorization_code", "refresh_token"],
     },
   ],
@@ -47,7 +60,7 @@ const config: Configuration = {
 };
 
 export default function createProvider(port: number) {
-  const issuer = `http://localhost:${port}/`;
+  const issuer = `${issuerBaseUrl}/`;
   const provider = new Provider(issuer, config);
 
   provider.use(async (ctx, next) => {
@@ -55,14 +68,12 @@ export default function createProvider(port: number) {
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     if (ctx.oidc?.route === "end_session_success") {
-      ctx.redirect("http://localhost:3000");
+      ctx.redirect(appBaseUrl);
     }
   });
 
   return provider;
 }
-
-const port = 9000;
 createProvider(port).listen(port, () => {
-  console.log(`> Ready on http://localhost:${port}`);
+  console.log(`> Ready on ${issuerBaseUrl} (app: ${appBaseUrl})`);
 });

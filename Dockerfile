@@ -37,8 +37,6 @@ FROM base AS runner
 ENV NODE_ENV=production
 
 RUN useradd --uid 1001 --create-home nodeapp
-USER nodeapp
-
 EXPOSE 3000
 
 COPY --from=builder /app/package.json ./package.json
@@ -46,5 +44,12 @@ COPY --from=builder /app/next.config.js ./next.config.js
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
+
+# Next.js writes runtime caches (e.g. image optimization) under `.next/cache/**`.
+# The build stages create `.next` as root-owned; ensure our non-root runtime user can write.
+RUN mkdir -p /app/.next/cache/images \
+	&& chown -R nodeapp:nodeapp /app/.next
+
+USER nodeapp
 
 CMD ["npm", "run", "start"]

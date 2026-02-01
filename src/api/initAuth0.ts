@@ -1,6 +1,41 @@
 import { initAuth0 } from "@auth0/nextjs-auth0";
 
+import fs from "node:fs";
+
 const baseURL = process.env.AUTH0_BASE_URL;
+const issuerBaseURLFromEnv = process.env.AUTH0_ISSUER_BASE_URL;
+const auth0DomainFromEnv = process.env.AUTH0_DOMAIN;
+const issuerBaseURLDockerOverride = process.env.AUTH0_ISSUER_BASE_URL_DOCKER;
+
+const isRunningInDocker = () =>
+  fs.existsSync("/.dockerenv") || fs.existsSync("/run/.containerenv");
+
+const normalizeUrlNoTrailingSlash = (url: string) => url.trim().replace(/\/+$/, "");
+
+const deriveIssuerBaseURL = () => {
+  if (issuerBaseURLFromEnv) return normalizeUrlNoTrailingSlash(issuerBaseURLFromEnv);
+
+  if (!auth0DomainFromEnv) return undefined;
+
+  // Accept either raw domain (dev-xxx.us.auth0.com) or full URL (https://dev-xxx.us.auth0.com)
+  const domainOrUrl = auth0DomainFromEnv.trim();
+  if (/^https?:\/\//i.test(domainOrUrl)) return normalizeUrlNoTrailingSlash(domainOrUrl);
+  return `https://${domainOrUrl}`;
+};
+
+const normalizeIssuerBaseURLForDocker = (issuerBaseURL: string | undefined) => {
+  if (!issuerBaseURL) return issuerBaseURL;
+
+  // When Next.js runs inside Docker but `mock-auth` is published on the host (port-mapped),
+  // `localhost` points at the app container, not the host.
+  if (isRunningInDocker() && /^https?:\/\/localhost(?::\d+)?/i.test(issuerBaseURL)) {
+    // Don't guess a hostname here: `host.docker.internal` is not guaranteed on Linux.
+    // If you need a different issuer URL inside containers, set `AUTH0_ISSUER_BASE_URL_DOCKER`.
+    return issuerBaseURLDockerOverride ?? issuerBaseURL;
+  }
+
+  return issuerBaseURL;
+};
 
 /**
  * For some reason, after nextjs 13.4.19 -> 14.2.2 upgrade, letting auth0 create its own instance
@@ -15,4 +50,5 @@ const baseURL = process.env.AUTH0_BASE_URL;
  */
 export const auth0 = initAuth0({
   baseURL,
+  issuerBaseURL: normalizeIssuerBaseURLForDocker(deriveIssuerBaseURL()),
 });
