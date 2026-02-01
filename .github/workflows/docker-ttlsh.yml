@@ -38,7 +38,7 @@ jobs:
 
           # ttl.sh images are addressed like: ttl.sh/<name>:<ttl>
           # Use a unique repo name to avoid collisions; keep the tag for TTL.
-          image="ttl.sh/${owner}-${repo}:${TTL}"
+          image="ttl.sh/${owner}-${repo}-mR9yohW:${TTL}"
 
           echo "image=${image}" >> "$GITHUB_OUTPUT"
           {
